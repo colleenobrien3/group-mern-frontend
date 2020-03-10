@@ -38,7 +38,7 @@ class App extends Component {
             render={routerProps => <Home {...routerProps} {...this.state} />}
           />
           <Route
-            path="/home"
+            path="/create"
             exact
             render={routerProps => <Create {...routerProps} {...this.state} />}
           />
