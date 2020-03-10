@@ -15,7 +15,7 @@ const RecipeCard = props => {
 
   return (
     <div class="recipeCard">
-      <div>{props.title}</div>
+      <div className="recipeName">{props.title}</div>
       <div className="spanContainer">
         <span className="cardSpan">
           <p>Ingredients</p>

@@ -4,12 +4,18 @@
   background-color: aliceblue;
   box-shadow: 0.5px 0.5px gray;
   color: gray;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .spanContainer {
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
 }
 
-.cardSpan {
+.recipeName{
+  margin-bottom: 4px;
 }
+
