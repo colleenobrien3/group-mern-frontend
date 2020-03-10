@@ -2,10 +2,10 @@ import React from "react";
 import "./RecipeCard.css";
 
 const RecipeCard = props => {
-  let classList = "";
-  if (props.large) {
-    classList += ` button-large`;
-  }
+  // let classList = "";
+  // if (props.large) {
+  //   classList += ` button-large`;
+  // }
   let steps = props.steps.map(item => {
     return <li>{item}</li>;
   });
@@ -15,14 +15,14 @@ const RecipeCard = props => {
 
   return (
     <div class="recipeCard">
-      <div>{props.title}</div>
+      <h2 className="recipeName">{props.title}</h2>
       <div className="spanContainer">
-        <span className="cardSpan">
-          <p>Ingredients</p>
+        <span className="cardSpan ingredient-list">
+          <p>Ingredients:</p>
           <ul>{ingredients}</ul>
         </span>
-        <span className="cardSpan">
-          <p>Steps</p>
+        <span className="cardSpan step-list">
+          <p>Steps:</p>
           <ol>{steps}</ol>
         </span>
       </div>
