@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Button from "./storybookComponents/Button/Button";
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // function openNav() {
 //   document.querySelector({ nav }).style.width = "20%";
 // }
@@ -19,6 +19,7 @@ class App extends Component {
   };
   render() {
     return (
+      
       <div className="App">
         <header className="App-header">
           <Button label="Home" />
@@ -32,6 +33,7 @@ class App extends Component {
           {/* <p>Home</p>
           <p>Profile</p> */}
         </nav>
+        
         <footer className="footer">
           <h4>
             
@@ -47,7 +49,7 @@ class App extends Component {
           </p>
         </footer>
       </div>
-    );
+  );
   }
 }
 
