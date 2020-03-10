@@ -1,0 +1,10 @@
+.recipeCard {
+  width: 40%;
+  border: solid;
+  padding: 2%;
+}
+
+.spanContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
