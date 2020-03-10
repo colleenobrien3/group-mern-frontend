@@ -14,7 +14,7 @@ class App extends Component {
   }
   showNav = e => {
     e.preventDefault();
-    alert("hi");
+    this._nav.style.width = "200px";
   };
   render() {
     return (
@@ -22,9 +22,10 @@ class App extends Component {
         <header className="App-header">
           <Button label="Home" />
           <img src={logo} className="App-logo" alt="logo" />
-          <button label="---" onClick={this.showNav}>
+          {/* <button label="---" onClick={this.showNav}>
             hi
-          </button>
+          </button> */}
+          <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
           {/* <p>Home</p>

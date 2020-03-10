@@ -42,8 +42,9 @@ nav {
   z-index: 1;
   top: 0;
   right: 0;
+  width: 0;
   position: fixed;
-  transition: 0.5s;
+  transition: width 1s;
   background-color: gray;
   align-items: center;
 }

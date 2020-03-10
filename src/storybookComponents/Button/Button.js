@@ -7,7 +7,11 @@ const Button = props => {
     classList += ` button-large`;
   }
 
-  return <button className={classList}>{props.label}</button>;
+  return (
+    <button className={classList} onClick={props.handleClick}>
+      {props.label}
+    </button>
+  );
 };
 
 export default Button;
