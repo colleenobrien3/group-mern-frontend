@@ -5,7 +5,7 @@ import RecipeCard from "./RecipeCard";
 
 storiesOf("RecipeCard", module).add("Sign Up", () => (
   <RecipeCard
-    title="pizza"
+    title="Pizza"
     ingredients={["cheese", "sauce"]}
     steps={["make", "eat"]}
   />

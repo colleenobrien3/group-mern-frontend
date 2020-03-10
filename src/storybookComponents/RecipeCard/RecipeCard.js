@@ -15,14 +15,14 @@ const RecipeCard = props => {
 
   return (
     <div class="recipeCard">
-      <h3>{props.title}</h3>
+      <div>{props.title}</div>
       <div className="spanContainer">
-        <span className="CardSpan">
-          <h4>Ingredients</h4>
+        <span className="cardSpan">
+          <p>Ingredients</p>
           <ul>{ingredients}</ul>
         </span>
         <span className="cardSpan">
-          <h4>Steps</h4>
+          <p>Steps</p>
           <ol>{steps}</ol>
         </span>
       </div>
