@@ -28,8 +28,12 @@ class App extends Component {
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
-          <Link to="/home">Home</Link>
-          <Link to="/create">Create</Link>
+          <Link to="/home">
+            <p>Home</p>
+          </Link>
+          <Link to="/create">
+            <p>Create</p>
+          </Link>
         </nav>
         <main>
           <Route
