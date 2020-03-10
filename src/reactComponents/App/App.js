@@ -3,6 +3,9 @@ import logo from "../../logo.svg";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import Input from "../../storybookComponents/Input/Input";
+import { Route, Link } from "react-router-dom";
+import Home from "../Home/Home";
+import Create from "../Create/Create";
 
 class App extends Component {
   constructor(props) {
@@ -25,16 +28,21 @@ class App extends Component {
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
-          {/* <p>Home</p>
-          <p>Profile</p> */}
+          <Link to="/home">Home</Link>
+          <Link to="/create">Create</Link>
         </nav>
-        <Input
-          formLabel="Sign Up"
-          placeHolderName="Name"
-          placeHolderPWord="Password"
-          buttonLabel="Redeem"
-          onSubmit={(arg, arg2) => alert(arg + arg2)}
-        />
+        <main>
+          <Route
+            path="/home"
+            exact
+            render={routerProps => <Home {...routerProps} {...this.state} />}
+          />
+          <Route
+            path="/home"
+            exact
+            render={routerProps => <Create {...routerProps} {...this.state} />}
+          />
+        </main>
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien / Caio Ingber / Rachel Israel / Levani
