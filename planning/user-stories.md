@@ -1,0 +1,3 @@
+## User Stories
+
+- Sharon goes to recipe-Rolodex.com and is greeted by a landing page with a tag line of the site and a description of the platform. She sees recipes that other users have recently added. As someone who always appreciates cooking but never remembers to write down recipes, Sharon signs up for an account by clicking on the ‘sign up’ button in the nav bar. She is greeted by a form that asks for her name, username and password and password confirmation. She enters her information and then is confirmed the sign up works. A button appears to either view recipes or post one of her own. She decides to post her first and is greeted by another form that asks for the ingredients cook time and directions for the recipe.
