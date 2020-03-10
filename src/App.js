@@ -19,6 +19,23 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+       
+        <footer className="footer">
+          <h4>
+            
+            CREATED BY | Colleen O'Brien / Caio Ingber / Rachel Israel / Levani
+            Papashvili
+          </h4>
+          <p>
+            &copy; 2020 Copyright
+            <a className="A" href="http://www" target="_blank">
+              www.somethimg.com
+            </a>
+           
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
