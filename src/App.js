@@ -3,11 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import Button from "./storybookComponents/Button/Button";
 
-<<<<<<< HEAD
-// function openNav() {
-//   document.querySelector({ nav }).style.width = "20%";
-// }
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +29,6 @@ class App extends Component {
         </nav>
         <footer className="footer">
           <h4>
-            
             CREATED BY | Colleen O'Brien / Caio Ingber / Rachel Israel / Levani
             Papashvili
           </h4>
@@ -43,7 +37,6 @@ class App extends Component {
             <a className="A" href="http://www" target="_blank">
               www.somethimg.com
             </a>
-           
           </p>
         </footer>
       </div>
