@@ -1,14 +1,23 @@
 import React, { Component } from "react";
-import "./RecipeInput.css";
+import "./Create.css";
 
-class NewRecipe extends Component {
+let ingredient = {
+  name: "",
+  measurementValue: 0,
+  measurementType: ""
+};
+
+class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      password: "",
-      foodName: "",
-      foodCat: ""
+      author: "",
+      cuisine: "",
+      cooktime: 0,
+      ingredients: [],
+      steps: [],
+      image: ""
     };
   }
   getInputName = event => {
@@ -69,4 +78,4 @@ class NewRecipe extends Component {
   }
 }
 
-export default RecipeInput;
+export default Create;
