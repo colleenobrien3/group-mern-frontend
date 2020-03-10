@@ -1,0 +1,19 @@
+form {
+  border-radius: 5px;
+  background-color: aliceblue;
+  color: gray;
+  border: none;
+  box-shadow: 0.5px 0.5px gray;
+  padding: 1.1%;
+  width: 30%;
+  text-align: center;
+}
+
+input {
+  margin: 3%;
+}
+
+button {
+  background-color: white;
+  margin: 2%;
+}
