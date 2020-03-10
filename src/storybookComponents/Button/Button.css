@@ -1,0 +1,12 @@
+button {
+  border-radius: 5px;
+  background-color: aliceblue;
+  color: gray;
+  border: none;
+  box-shadow: 0.5px 0.5px gray;
+}
+
+button:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+}
