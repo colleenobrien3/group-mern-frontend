@@ -5,7 +5,7 @@
 .App-logo {
   height: 20vmin;
   pointer-events: none;
-  padding: 1% 15%;
+  padding: 1% 18%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e8f4f8;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
@@ -33,6 +33,30 @@
   border: solid;
   height: 8vh;
   width: 6%;
+  line-height: 70%;
+  padding: 1%;
+}
+
+nav {
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  position: fixed;
+  transition: 0.5s;
+  background-color: gray;
+  align-items: center;
+}
+
+nav p {
+  transition: 0.3s;
+  margin: 0 auto;
+  width: 0;
+}
+
+nav p:hover {
+  color: #61dafb;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
