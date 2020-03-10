@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Button from "./storybookComponents/Button/Button";
+import Button from "../../storybookComponents/Button/Button";
+import Input from "../../storybookComponents/Input/Input";
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,13 @@ class App extends Component {
           {/* <p>Home</p>
           <p>Profile</p> */}
         </nav>
+        <Input
+          formLabel="Sign Up"
+          placeHolderName="Name"
+          placeHolderPWord="Password"
+          buttonLabel="Redeem"
+          onSubmit={(arg, arg2) => alert(arg + arg2)}
+        />
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien / Caio Ingber / Rachel Israel / Levani

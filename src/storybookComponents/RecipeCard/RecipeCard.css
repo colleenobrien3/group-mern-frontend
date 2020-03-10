@@ -1,0 +1,15 @@
+.recipeCard {
+  width: 40%;
+  padding: 2%;
+  background-color: aliceblue;
+  box-shadow: 0.5px 0.5px gray;
+  color: gray;
+}
+
+.spanContainer {
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.cardSpan {
+}
