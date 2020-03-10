@@ -1,0 +1,52 @@
+.recipeCard {
+  height: 200px;
+  width: 500px;
+  padding: 6% 2%;
+  padding-top: 4%;
+  background-color: whitesmoke;
+  box-shadow: 0.5px 0.5px gray;
+  color: #5a5a5a;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+.cardSpan {
+  border: 1px solid #bbdefd;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.spanContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recipeName {
+  margin: 0 auto;
+  border-bottom: 1px solid #bbdefd;
+  margin-bottom: 20px;
+}
+.step-list {
+  padding: 0% 10%;
+}
+
+.ingredient-list{
+  padding: 0% 5%;
+}
+
+ul {
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li{
+  text-align: left;
+}

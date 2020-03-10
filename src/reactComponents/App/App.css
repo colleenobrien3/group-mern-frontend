@@ -41,11 +41,17 @@ nav {
   transition: width 1s;
   background-color: gray;
   align-items: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
 }
 nav p {
   transition: 0.3s;
   margin: 0 auto;
   width: 0;
+  text-decoration: none;
+  color: aliceblue;
 }
 nav p:hover {
   color: #61DAFB;
@@ -59,7 +65,7 @@ nav p:hover {
     transform: rotate(360deg);
   }
 }
-.footer p{
+.footer p {
   grid-row: 3;
   display: flex;
   justify-content: right;
@@ -70,7 +76,12 @@ nav p:hover {
   border: 4px solid white;
   font-weight: bold;
 }
+<<<<<<< HEAD:src/App.css
 .footer h4{
+=======
+
+.footer h4 {
+>>>>>>> 019370e40dbf0139a108089c08dd2519c7bd1cfb:src/reactComponents/App/App.css
   grid-row: 3;
   display: flex;
   justify-content: center;
@@ -80,4 +91,8 @@ nav p:hover {
   border-radius: 8px;
   border: 4px solid white;
   font-weight: bold;
+<<<<<<< HEAD:src/App.css
 }
+=======
+}
+>>>>>>> 019370e40dbf0139a108089c08dd2519c7bd1cfb:src/reactComponents/App/App.css
