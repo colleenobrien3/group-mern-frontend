@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import "./Create.css";
 
-let ingredient = {
-  name: "",
-  measurementValue: 0,
-  measurementType: ""
-};
-
 class Create extends Component {
   constructor(props) {
     super(props);
@@ -14,65 +8,71 @@ class Create extends Component {
       name: "",
       author: "",
       cuisine: "",
-      cooktime: 0,
+      cooktime: "",
       ingredients: [],
       steps: [],
-      image: ""
+      image: "",
+      ingName: "",
+      measurementValue: "",
+      measurementType: ""
     };
   }
-  getInputName = event => {
-    this.setState({ name: event.target.value });
+  setInput = e => {
+    let place = e.target.placeholder;
+    e.preventDefault();
+    this.setState({ [place]: e.target.value });
   };
-  getInputPassword = event => {
-    this.setState({ password: event.target.value });
+
+  setIngredient = e => {
+    e.preventDefault();
+    let ingredient = {
+      name: this.state.ingName,
+      measurementValue: this.state.measurementValue,
+      measurementType: this.state.measurementType
+    };
+    let all = this.state.ingredients;
+    all.push(ingredient);
+    this.setState({ ingredients: all });
   };
-  getInputFoodName = event => {
-    this.setState({ foodName: event.target.value });
-  };
-  getInputFoodCat = event => {
-    this.setState({ foodCat: event.target.value });
-  };
+
   render() {
-    let classList = "";
-    if (this.props.large) {
-      classList += ` Input-large`;
-    }
+    console.log(this.state);
     return (
-      <form
-        className={classList}
-        onSubmit={e => {
-          e.preventDefault();
-          this.props.onSubmit(
-            this.state.name,
-            this.state.password,
-            this.state.foodName,
-            this.state.foodCat
-          );
-        }}
-        id="thisContainer"
-      >
-        <h4>{this.props.formLabel}</h4>
+      <form className="create-recipe" id="thisContainer">
+        <h2>New Recipe</h2>
         <input
-          placeholder={this.props.placeHolderName || this.props.label}
-          onChange={event => this.getInputName(event)}
+          type="text"
+          placeholder="author"
+          onChange={this.setInput}
         ></input>
-        <br />
         <input
-          placeholder={this.props.placeHolderPWord || this.props.label}
-          onChange={event => this.getInputPassword(event)}
-        ></input>{" "}
-        <br />
-        <input
-          placeholder={this.props.placeHolderFoodName || this.props.label}
-          onChange={event => this.getInputFoodName(event)}
+          type="text"
+          placeholder="cuisine"
+          onChange={this.setInput}
         ></input>
-        <br />
+        <input type="text" placeholder="name" onChange={this.setInput}></input>
         <input
-          placeholder={this.props.placeHolderFoodCat || this.props.label}
-          onChange={event => this.getInputFoodCat(event)}
-        ></input>{" "}
-        <br />
-        <button>{this.props.buttonLabel}</button>
+          type="text"
+          placeholder="cooktime"
+          onChange={this.setInput}
+        ></input>
+        <input type="text" placeholder="image" onChange={this.setInput}></input>
+        <input
+          type="text"
+          placeholder="ingName"
+          onChange={this.setInput}
+        ></input>
+        <input
+          type="text"
+          placeholder="measurementValue"
+          onChange={this.setInput}
+        ></input>
+        <input
+          type="text"
+          placeholder="measurementType"
+          onChange={this.setInput}
+        ></input>
+        <button type="submit" onClick={this.setIngredient}></button>
       </form>
     );
   }
