@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
+  padding: 1% 15%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,9 +16,9 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -26,6 +27,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.hamburger {
+  border: solid;
+  height: 8vh;
+  width: 6%;
 }
 
 @keyframes App-logo-spin {
