@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import logo from "../../logo.svg";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import Input from "../../storybookComponents/Input/Input";
