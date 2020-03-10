@@ -30,7 +30,7 @@ function App() {
           <p>
             &copy; 2020 Copyright
             <a className="A" href="http://www" target="_blank">
-              www.somethimg.com
+              www.somthimg.com
             </a>
            
           </p>
