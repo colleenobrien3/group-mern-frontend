@@ -50,6 +50,7 @@ nav {
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }
 
 nav p {
