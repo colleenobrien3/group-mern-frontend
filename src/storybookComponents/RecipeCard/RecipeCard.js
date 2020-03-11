@@ -1,5 +1,7 @@
 import React from "react";
 import "./RecipeCard.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const RecipeCard = props => {
   let recipe = props.data;
@@ -20,8 +22,22 @@ const RecipeCard = props => {
     backgroundImage: `url(${recipe.image})`
   };
 
+  let trash = {
+    backgroundImage: "url('../../images/trash.svg')"
+  };
+  console.log(trash);
+
+  function deleteCard(e) {
+    e.preventDefault();
+    // console.log(`http://localhost:8080/${recipe._id}`);
+    axios.delete(`http://localhost:8080/${recipe._id}`).then(res => {
+      console.log(res);
+    });
+  }
+
   return (
     <div className="recipeCard">
+      <div className="delete" onClick={deleteCard}></div>
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">
         <div className="card-content">
