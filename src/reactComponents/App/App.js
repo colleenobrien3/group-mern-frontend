@@ -4,6 +4,7 @@ import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import Input from "../../storybookComponents/Input/Input";
 import { Route, Link } from "react-router-dom";
+import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 
@@ -11,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: [],
+      recipes: null,
       navOpen: false
     };
   }
@@ -33,18 +34,11 @@ class App extends Component {
 
   componentDidMount() {
     let url = "http://localhost:8080/";
-    let recipes = "";
-    let recipesState = [];
-    fetch(url)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .then(response => {
-        recipes = response;
-        recipes.forEach(item => {
-          recipesState.push(item);
-          this.setState({ recipes: recipesState });
-          console.log(this.state);
-        });
+    axios
+      .get(url)
+      .then(res => {
+        this.setState({ recipes: res.data });
+        console.log(res);
       })
       .catch(err => {
         console.error(err);
@@ -74,7 +68,9 @@ class App extends Component {
           <Route
             path="/home"
             exact
-            render={routerProps => <Home {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Home {...routerProps} recipe={this.state.recipes} />
+            )}
           />
           <Route
             path="/create"
