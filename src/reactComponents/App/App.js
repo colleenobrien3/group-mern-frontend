@@ -4,6 +4,7 @@ import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import Input from "../../storybookComponents/Input/Input";
 import { Route, Link } from "react-router-dom";
+import axios from 'axios';
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 
@@ -35,7 +36,7 @@ class App extends Component {
     let url = "http://localhost:8080/";
     let recipes = "";
     let recipesState = [];
-    fetch(url)
+    axios.get(url)
       .then(response => response.json())
       .then(response => console.log(response))
       .then(response => {
