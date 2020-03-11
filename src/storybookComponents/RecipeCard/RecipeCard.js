@@ -5,7 +5,8 @@ const RecipeCard = props => {
   let recipe = props.data;
   console.log(recipe);
 
-  let steps = recipe.Steps.map((item, index) => {
+  let steps = recipe.steps.map((item, index) => {
+
     return <li key={index}>{item}</li>;
   });
   let ingredients = recipe.ingredients.map((item, index) => {
@@ -16,13 +17,24 @@ const RecipeCard = props => {
     );
   });
 
+  let picture = {
+    backgroundImage: `url(${recipe.image})`
+  }
+      console.log(picture);
+
+
   return (
-    <div class="recipeCard">
+    <div className="recipeCard">
       <h2 className="recipeName">{recipe.name}</h2>
-      <p>Author: {recipe.author}</p>
-      <h3>Cuisine: {recipe.cuisine}</h3>
-      <h3>Course: {recipe.course}</h3>
-      <h3>Cooktime: {recipe.cooktime}</h3>
+      <div className="card-top">
+        <div className="card-content">
+          <p className="bold">Author: {recipe.author}</p>
+          <p className="bold">Cuisine: {recipe.cuisine}</p>
+          <p className="bold">Course: {recipe.course}</p>
+          <p className="bold">Cooktime: {recipe.cooktime}</p>
+        </div>
+        <div className="card-picture" style={picture}></div>
+      </div>
       <div className="spanContainer">
         <span className="cardSpan ingredient-list">
           <p>Ingredients:</p>
