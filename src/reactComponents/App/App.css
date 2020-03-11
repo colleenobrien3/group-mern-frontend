@@ -1,19 +1,20 @@
+a {
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 20vmin;
   pointer-events: none;
   padding: 1% 18%;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #e8f4f8;
   min-height: 10vh;
@@ -24,11 +25,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 .hamburger {
   border: solid;
   height: 8vh;
@@ -36,7 +35,6 @@
   line-height: 70%;
   padding: 1%;
 }
-
 nav {
   height: 100vh;
   z-index: 1;
@@ -52,7 +50,6 @@ nav {
   justify-content: left;
   font-size: 20px;
 }
-
 nav p {
   transition: 0.3s;
   margin: 0 auto;
@@ -67,12 +64,10 @@ nav span {
   margin: 6%;
   text-decoration: none !important;
 }
-
 nav p:hover {
   color: #61dafb;
   cursor: pointer;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

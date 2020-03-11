@@ -1,0 +1,19 @@
+.create-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+}
+.list-container {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.list {
+  width: 50%;
+}

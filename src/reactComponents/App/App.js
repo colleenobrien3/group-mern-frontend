@@ -11,17 +11,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: []
+      recipes: [],
+      navOpen: false
     };
   }
   showNav = e => {
-    e.preventDefault();
-    this._nav.style.width = "200px";
+    if (this.state.navOpen === false) {
+      e.preventDefault();
+      this._nav.style.width = "200px";
+      this.setState({ navOpen: true });
+    }
   };
-  hideNav = e => {
-    e.preventDefault();
-    this._nav.style.width = "0px";
+
+  closeNav = e => {
+    if (this.state.navOpen) {
+      e.preventDefault();
+      this._nav.style.width = "0";
+      this.setState({ navOpen: false });
+    }
   };
+
   componentDidMount() {
     let url = "http://localhost:8080/";
     let recipes = "";
@@ -48,23 +57,18 @@ class App extends Component {
         <header className="App-header">
           <Button label="Home" />
           <img src={logo} className="App-logo" alt="logo" />
-          {/* <button label="---" onClick={this.showNav}>
-            hi
-          </button> */}
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
-          <Button label="X" handleClick={this.hideNav}>
+          <div className="close-nav" onClick={this.closeNav}>
             X
-          </Button>
-          <span>
-            <Link to="/home">
-              <p>Home</p>
-            </Link>
-            <Link to="/create">
-              <p>Create</p>
-            </Link>
-          </span>
+          </div>
+          <Link to="/home">
+            <p>Home</p>
+          </Link>
+          <Link to="/create">
+            <p>Create</p>
+          </Link>
         </nav>
         <main>
           <Route
@@ -86,7 +90,7 @@ class App extends Component {
           <p>
             &copy; 2020 Copyright
             <a className="A" href="http://www" target="_blank">
-              www.somethimg.com
+              www.somthimg.com
             </a>
           </p>
         </footer>
