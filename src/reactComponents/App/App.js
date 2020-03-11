@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: null,
+      recipes: [],
       navOpen: false
     };
   }
@@ -33,12 +33,20 @@ class App extends Component {
   };
 
   componentDidMount() {
-    let url = "http://localhost:8080/";
+    let url = "";
+    if (process.env.NODE_ENV === "production") {
+      url = "https://recipe-roledex.herokuapp.com/";
+    }
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:8080/";
+    }
+    // console.log(process.env.NODE_ENV)
     axios
       .get(url)
       .then(res => {
         this.setState({ recipes: res.data });
         console.log(res);
+        console.log(process.env.NODE_ENV);
       })
       .catch(err => {
         console.error(err);
