@@ -33,9 +33,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    let url = "http://localhost:8080/";
+    let deployedUrl = "https://recipe-roledex.herokuapp.com/";
+    let localUrl = "http://localhost:8080/";
     axios
-      .get(url)
+      .get(deployedUrl)
       .then(res => {
         this.setState({ recipes: res.data });
         console.log(res);
@@ -66,7 +67,7 @@ class App extends Component {
         </nav>
         <main>
           <Route
-            path="/home"
+            path="/"
             exact
             render={routerProps => (
               <Home {...routerProps} recipe={this.state.recipes} />
