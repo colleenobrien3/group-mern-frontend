@@ -34,8 +34,6 @@ class App extends Component {
 
   componentDidMount() {
     let url = "http://localhost:8080/";
-    // let recipes = "";
-    // let recipesState = [];
     axios
       .get(url)
       .then(res => {
