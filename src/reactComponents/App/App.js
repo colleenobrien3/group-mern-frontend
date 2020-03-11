@@ -18,6 +18,10 @@ class App extends Component {
     e.preventDefault();
     this._nav.style.width = "200px";
   };
+  hideNav = e => {
+    e.preventDefault();
+    this._nav.style.width = "0px";
+  };
   componentDidMount() {
     let url = "http://localhost:8080/";
     let recipes = "";
@@ -50,12 +54,17 @@ class App extends Component {
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
-          <Link to="/home">
-            <p>Home</p>
-          </Link>
-          <Link to="/create">
-            <p>Create</p>
-          </Link>
+          <Button label="X" handleClick={this.hideNav}>
+            X
+          </Button>
+          <span>
+            <Link to="/home">
+              <p>Home</p>
+            </Link>
+            <Link to="/create">
+              <p>Create</p>
+            </Link>
+          </span>
         </nav>
         <main>
           <Route

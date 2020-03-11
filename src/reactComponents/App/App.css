@@ -46,10 +46,10 @@ nav {
   position: fixed;
   transition: width 1s;
   background-color: gray;
-  align-items: center;
   text-decoration: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: left;
   font-size: 20px;
 }
 
@@ -59,6 +59,10 @@ nav p {
   width: 0;
   text-decoration: none;
   color: aliceblue;
+}
+
+nav span {
+  margin: 6%;
 }
 
 nav p:hover {
