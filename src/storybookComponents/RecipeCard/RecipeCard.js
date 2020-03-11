@@ -6,7 +6,6 @@ const RecipeCard = props => {
   console.log(recipe);
 
   let steps = recipe.steps.map((item, index) => {
-
     return <li key={index}>{item}</li>;
   });
   let ingredients = recipe.ingredients.map((item, index) => {
@@ -19,17 +18,11 @@ const RecipeCard = props => {
 
   let picture = {
     backgroundImage: `url(${recipe.image})`
-  }
-
-  let trash = {
-    backgroundImage: "url('../../images/trash.svg')"
-  }
-      console.log(trash);
-
+  };
+  console.log(picture);
 
   return (
     <div className="recipeCard">
-      <div className='delete'></div>
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">
         <div className="card-content">
