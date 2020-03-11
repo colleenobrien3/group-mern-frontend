@@ -79,8 +79,8 @@ nav p:hover {
 .footer p {
   grid-row: 3;
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
   /* background: deepskyblue; */
   border-radius: 8px;
