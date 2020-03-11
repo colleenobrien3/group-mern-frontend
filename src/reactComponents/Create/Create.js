@@ -58,7 +58,17 @@ class Create extends Component {
     }
   };
 
-  removeLast = e => {};
+  removeLastStep = e => {
+    let lastStep = this.state.steps;
+    lastStep.pop();
+    this.setState({ steps: lastStep });
+  };
+
+  removeLastIngredient = e => {
+    let lastIngredient = this.state.ingredients;
+    lastIngredient.pop();
+    this.setState({ ingredients: lastIngredient });
+  };
 
   setStep = e => {
     e.preventDefault();
@@ -136,6 +146,9 @@ class Create extends Component {
               onChange={this.setInput}
               className="measurementType"
             ></input>
+            <button type="button" onClick={this.removeLastIngredient}>
+              -
+            </button>
             <button type="submit"> + </button>
           </form>
           <form onSubmit={this.setStep}>
@@ -144,11 +157,14 @@ class Create extends Component {
               placeholder="Wash Veggies"
               onChange={this.setInput}
             ></input>
+            <button type="button" onClick={this.removeLastStep}>
+              -
+            </button>
             <button type="submit">+</button>
           </form>
         </div>
         <div className="list-container">
-          <ul>{list}</ul>
+          <ul className>{list}</ul>
           <ol>{list2}</ol>
         </div>
       </div>
