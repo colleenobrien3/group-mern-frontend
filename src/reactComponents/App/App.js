@@ -10,12 +10,34 @@ import Create from "../Create/Create";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      recipes: []
+    };
   }
   showNav = e => {
     e.preventDefault();
     this._nav.style.width = "200px";
   };
+  componentDidMount() {
+    let url = "http://localhost:8080/";
+    let recipes = "";
+    let recipesState = [];
+    fetch(url)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .then(response => {
+        recipes = response;
+        recipes.forEach(item => {
+          recipesState.push(item);
+          this.setState({ recipes: recipesState });
+          console.log(this.state);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
   render() {
     return (
       <div className="App">
