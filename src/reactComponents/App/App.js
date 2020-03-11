@@ -55,9 +55,9 @@ class App extends Component {
           </h4>
           <p>
             &copy; 2020 Copyright
-            <a className="A" href="http://www" target="_blank">
+            {/* <a className="A" href="http://www" target="_blank">
               www.somthimg.com
-            </a>
+            </a> */}
           </p>
         </footer>
       </div>
