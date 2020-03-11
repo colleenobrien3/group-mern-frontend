@@ -3,18 +3,21 @@ import logo from "../../logo.svg";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 // import Input from "../../storybookComponents/Input/Input";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
+import Deleted from "../Deleted/Deleted";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: [],
-      navOpen: false
+      navOpen: false,
+      deleted: false
     };
+    this.refreshDelete = this.refreshDelete.bind();
   }
   showNav = e => {
     if (this.state.navOpen === false) {
@@ -30,6 +33,21 @@ class App extends Component {
       this._nav.style.width = "0";
       this.setState({ navOpen: false });
     }
+  };
+
+  refreshDelete = () => {
+    // e.preventDefault();
+    this.setState({ deleted: this.state.deleted + 1 });
+  };
+
+  deleteCard = e => {
+    e.persist();
+    axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
+      console.log(res);
+      this.setState({ deleted: true });
+    });
+    console.log(e.target.id);
+    console.log(this.state);
   };
 
   componentDidMount() {
@@ -54,6 +72,26 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.deleted) {
+      let url = "";
+      if (process.env.NODE_ENV === "production") {
+        url = "https://recipe-roledex.herokuapp.com/";
+      }
+      if (process.env.NODE_ENV === "development") {
+        url = "http://localhost:8080/";
+      }
+      axios
+        .get(url)
+        .then(res => {
+          this.setState({ recipes: res.data, deleted: false });
+          console.log(res);
+          console.log(process.env.NODE_ENV);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+    console.log(this.state.deleted);
     return (
       <div className="App">
         <header className="App-header">
@@ -77,7 +115,11 @@ class App extends Component {
             path="/"
             exact
             render={routerProps => (
-              <Home {...routerProps} recipe={this.state.recipes} />
+              <Home
+                {...routerProps}
+                recipe={this.state.recipes}
+                delete={this.deleteCard}
+              />
             )}
           />
           <Route
@@ -85,6 +127,9 @@ class App extends Component {
             exact
             render={routerProps => <Create {...routerProps} {...this.state} />}
           />
+          <Route path="/deleted">
+            <Deleted />
+          </Route>
         </main>
         <footer className="footer">
           <h4>
