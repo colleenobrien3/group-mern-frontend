@@ -1,0 +1,7 @@
+.create-container {
+  display: flex;
+}
+.list-container {
+  display: flex;
+  justify-content: space-around;
+}

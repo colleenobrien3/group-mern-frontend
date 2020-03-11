@@ -15,10 +15,10 @@ class Create extends Component {
       ingName: "",
       measurementValue: "",
       measurementType: "",
-      emptyValues: false,
-      ingredeLength: 0
+      currentStep: ""
     };
   }
+
   //Setting input value to state
   setInput = e => {
     let value = e.target.className;
@@ -34,9 +34,9 @@ class Create extends Component {
       !this.state.measurementValue ||
       !this.state.measurementType
     ) {
-      console.log("no");
+      //   console.log("no");
     } else {
-      e.persist();
+      //   e.persist();
       let ingredient = {
         name: this.state.ingName,
         measurementValue: this.state.measurementValue,
@@ -51,71 +51,106 @@ class Create extends Component {
         measurementValue: "",
         measurementType: ""
       });
-      console.log(e);
+      //   console.log(e);
       for (let i = 0; i < e.target.elements.length; i++) {
         e.target.elements[i].value = "";
       }
     }
   };
 
+  removeLast = e => {};
+
+  setStep = e => {
+    e.preventDefault();
+    // e.persist();
+    let allSteps = this.state.steps;
+    allSteps.push(e.target.elements[0].value);
+    this.setState({
+      steps: allSteps,
+      currentStep: ""
+    });
+    e.target.elements[0].value = "";
+  };
+
   render() {
     let list = this.state.ingredients.map(ingredient => {
-      if (this.state.ingredeLength === 0) {
-        return null;
-      } else {
-        return (
-          <li
-            key={ingredient.name}
-          >{`${ingredient.measurementValue} ${ingredient.measurementType} of ${ingredient.name}`}</li>
-        );
-      }
+      return (
+        <li
+          key={ingredient.name}
+        >{`${ingredient.measurementValue} ${ingredient.measurementType} of ${ingredient.name}`}</li>
+      );
+    });
+
+    let list2 = this.state.steps.map((step, index) => {
+      return <li key={index}>{step}</li>;
     });
 
     console.log(this.state);
     return (
-      <div>
-        <form className="create-recipe" id="thisContainer">
-          <h2>New Recipe</h2>
-          <input
-            type="text"
-            className="author"
-            onChange={this.setInput}
-          ></input>
-          <input
-            type="text"
-            className="cuisine"
-            onChange={this.setInput}
-          ></input>
-          <input type="text" className="name" onChange={this.setInput}></input>
-          <input
-            type="text"
-            className="cooktime"
-            onChange={this.setInput}
-          ></input>
-          <input type="text" className="image" onChange={this.setInput}></input>
-        </form>
-        <form onSubmit={this.setIngredient}>
-          <input
-            type="text"
-            placeholder="name (e.g. paprika, flour, chicken)"
-            onChange={this.setInput}
-            className="ingName"
-          ></input>
-          <input
-            type="number"
-            placeholder="value (e.g. 2, 2.25, 4)"
-            onChange={this.setInput}
-            className="measurementValue"
-          ></input>
-          <input
-            type="text"
-            placeholder="type (e.g. cups, tsp, tbsp)"
-            onChange={this.setInput}
-            className="measurementType"
-          ></input>
-          <button type="submit"> + </button>
-        </form>
-        <ul>{list}</ul>
+      <div className="create-wrapper">
+        <div className="create-container">
+          <form placeholder="create-recipe" id="thisContainer">
+            <h2>New Recipe</h2>
+            <input
+              type="text"
+              placeholder="author"
+              onChange={this.setInput}
+            ></input>
+            <input
+              type="text"
+              placeholder="cuisine"
+              onChange={this.setInput}
+            ></input>
+            <input
+              type="text"
+              placeholder="name"
+              onChange={this.setInput}
+            ></input>
+            <input
+              type="text"
+              placeholder="cooktime"
+              onChange={this.setInput}
+            ></input>
+            <input
+              type="text"
+              placeholder="image"
+              onChange={this.setInput}
+            ></input>
+          </form>
+          <form className="form-ingredients" onSubmit={this.setIngredient}>
+            <input
+              type="text"
+              placeholder="name (e.g. paprika, flour, chicken)"
+              onChange={this.setInput}
+              className="ingName"
+            ></input>
+            <input
+              type="text"
+              placeholder="value (e.g. 2, 2.25, 4)"
+              onChange={this.setInput}
+              className="measurementValue"
+            ></input>
+            <input
+              type="text"
+              placeholder="type (e.g. cups, tsp, tbsp)"
+              onChange={this.setInput}
+              className="measurementType"
+            ></input>
+            <button type="submit"> + </button>
+          </form>
+          <form onSubmit={this.setStep}>
+            <input
+              className="currentStep"
+              placeholder="Wash Veggies"
+              onChange={this.setInput}
+            ></input>
+            <button type="submit">+</button>
+          </form>
+        </div>
+        <div className="list-container">
+          <ul>{list}</ul>
+          <ol>{list2}</ol>
+        </div>
       </div>
     );
   }
