@@ -9,6 +9,7 @@ class Create extends Component {
       name: "",
       author: "",
       cuisine: "",
+      course: "",
       cooktime: "",
       ingredients: [],
       steps: [],
@@ -125,6 +126,11 @@ class Create extends Component {
             <input
               type="text"
               placeholder="image"
+              onChange={this.setInput}
+            ></input>
+            <input
+              type="text"
+              placeholder="course"
               onChange={this.setInput}
             ></input>
           </form>
