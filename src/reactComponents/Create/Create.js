@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Create.css";
+import Button from "../../storybookComponents/Button/Button";
 
 class Create extends Component {
   constructor(props) {
@@ -99,8 +100,8 @@ class Create extends Component {
     return (
       <div className="create-wrapper">
         <div className="create-container">
+          <h2>New Recipe</h2>
           <form placeholder="create-recipe" id="thisContainer">
-            <h2>New Recipe</h2>
             <input
               type="text"
               placeholder="author"
@@ -154,7 +155,7 @@ class Create extends Component {
           <form onSubmit={this.setStep}>
             <input
               className="currentStep"
-              placeholder="Wash Veggies"
+              placeholder="Wash Veggies..."
               onChange={this.setInput}
             ></input>
             <button type="button" onClick={this.removeLastStep}>
@@ -164,8 +165,8 @@ class Create extends Component {
           </form>
         </div>
         <div className="list-container">
-          <ul className>{list}</ul>
-          <ol>{list2}</ol>
+          <ul className="list">{list}</ul>
+          <ol className="list">{list2}</ol>
         </div>
       </div>
     );
