@@ -81,15 +81,14 @@ class App extends Component {
         </main>
         <footer className="footer">
           <h4>
-            CREATED BY | Colleen O'Brien / Caio Ingber / Rachel Israel / Levani
-            Papashvili
-          </h4>
-          <p>
+            CREATED BY | Colleen O'Brien | Caio Ingber | Rachel Israel | Levani
+            Papashvili<br></br><br></br>
+          
             &copy; 2020 Copyright
             {/* <a className="A" href="http://www" target="_blank">
               www.somthimg.com
             </a> */}
-          </p>
+          </h4>
         </footer>
       </div>
     );
