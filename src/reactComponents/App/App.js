@@ -33,13 +33,20 @@ class App extends Component {
   };
 
   componentDidMount() {
-    let deployedUrl = "https://recipe-roledex.herokuapp.com/";
-    let localUrl = "http://localhost:8080/";
+    let url = "";
+    if (process.env.NODE_ENV === "production") {
+      url = "https://recipe-roledex.herokuapp.com/";
+    }
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:8080/";
+    }
+    // console.log(process.env.NODE_ENV)
     axios
-      .get(deployedUrl)
+      .get(url)
       .then(res => {
         this.setState({ recipes: res.data });
         console.log(res);
+        console.log(process.env.NODE_ENV);
       })
       .catch(err => {
         console.error(err);
@@ -82,8 +89,8 @@ class App extends Component {
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien | Caio Ingber | Rachel Israel | Levani
-            Papashvili<br></br><br></br>
-          
+            Papashvili<br></br>
+            <br></br>
             &copy; 2020 Copyright
             {/* <a className="A" href="http://www" target="_blank">
               www.somthimg.com

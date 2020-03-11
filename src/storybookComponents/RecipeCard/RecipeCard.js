@@ -20,11 +20,16 @@ const RecipeCard = props => {
   let picture = {
     backgroundImage: `url(${recipe.image})`
   }
-      console.log(picture);
+
+  let trash = {
+    backgroundImage: "url('../../images/trash.svg')"
+  }
+      console.log(trash);
 
 
   return (
     <div className="recipeCard">
+      <div className='delete'></div>
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">
         <div className="card-content">
