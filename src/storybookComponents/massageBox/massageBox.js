@@ -3,9 +3,6 @@ import React, { Component } from "react";
 import "./massageBox.css"
 
 
-
-
-
 class Message extends React.Component {
   showAlert() {
     this.refs.messageBox.alert("Alert", "This is alert!").ok(() => {
