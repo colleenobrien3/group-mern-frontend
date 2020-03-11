@@ -20,9 +20,9 @@ const RecipeCard = props => {
     <div class="recipeCard">
       <h2 className="recipeName">{recipe.name}</h2>
       <p>Author: {recipe.author}</p>
-      <h3>Cuisine: {recipe.cuisine}</h3>
-      <h3>Course: {recipe.course}</h3>
-      <h3>Cooktime: {recipe.cooktime}</h3>
+      <p>Cuisine: {recipe.cuisine}</p>
+      <p>Course: {recipe.course}</p>
+      <p>Cooktime: {recipe.cooktime}</p>
       <div className="spanContainer">
         <span className="cardSpan ingredient-list">
           <p>Ingredients:</p>
