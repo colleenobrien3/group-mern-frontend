@@ -61,6 +61,13 @@ nav p {
   color: aliceblue;
 }
 
+.close-nav {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  cursor: pointer;
+}
+
 nav p:hover {
   color: #61dafb;
   cursor: pointer;
