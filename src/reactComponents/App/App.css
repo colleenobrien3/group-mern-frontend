@@ -81,26 +81,28 @@ nav p:hover {
     transform: rotate(360deg);
   }
 }
-.footer p {
+.footer p, h4{
+  color: rgb(94, 94, 94);
   grid-row: 3;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  /* background: deepskyblue; */
+  background-color: rgb(252, 252, 252); 
   border-radius: 8px;
   border: 4px solid white;
   font-weight: bold;
 }
-
+/*
 .footer h4 {
   grid-row: 3;
   display: flex;
   justify-content: center;
   align-items: right;
   padding: 1rem;
-  /* background: deepskyblue; */
+   background: deepskyblue; 
   border-radius: 8px;
   border: 4px solid white;
   font-weight: bold;
 }
+*/
