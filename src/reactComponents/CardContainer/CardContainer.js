@@ -9,7 +9,7 @@ const CardContainer = props => {
   //     console.log(props.recipes[i]);
   //   }
   let cards = props.recipes.map((item, index) => {
-    console.log(item);
+    // console.log(item);
     return <RecipeCard key={index} data={props.recipes[index]} />;
   });
 
