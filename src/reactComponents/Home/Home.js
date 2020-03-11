@@ -5,10 +5,11 @@ import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
 import CardContainer from "../CardContainer/CardContainer";
 
 const Home = props => {
+  console.log(props.refresh);
   return (
     <div className="homeContainer">
       <div className="homeCardContainer">
-        <CardContainer recipes={props.recipe} />
+        <CardContainer recipes={props.recipe} delete={props.delete} />
       </div>
     </div>
   );
