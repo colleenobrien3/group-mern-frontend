@@ -34,18 +34,14 @@ class App extends Component {
 
   componentDidMount() {
     let url = "http://localhost:8080/";
-    let recipes = "";
-    let recipesState = [];
-    axios.get(url)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .then(response => {
-        recipes = response;
-        recipes.forEach(item => {
-          recipesState.push(item);
-          this.setState({ recipes: recipesState });
-          console.log(this.state);
-        });
+    // let recipes = "";
+    // let recipesState = [];
+    axios
+      .get(url)
+      .then(res => {
+        this.setState({ recipes: res.data });
+        console.log(res);
+        console.log(this.state.recipes);
       })
       .catch(err => {
         console.error(err);
@@ -53,6 +49,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.recipes)
     return (
       <div className="App">
         <header className="App-header">
