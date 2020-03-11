@@ -13,11 +13,13 @@ const Home = props => {
         buttonLabel="Redeem"
         onSubmit={(arg, arg2) => alert(arg + arg2)}
       />
-      <RecipeCard
-        title="pizza"
-        ingredients={["cheese", "sauce"]}
-        steps={["make", "eat"]}
-      />
+      <div className="homeCardContainer">
+        <RecipeCard
+          title="pizza"
+          ingredients={["cheese", "sauce"]}
+          steps={["make", "eat"]}
+        />
+      </div>
     </div>
   );
 };

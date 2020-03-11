@@ -2,4 +2,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 3%;
+}
+
+.homeCardContainer {
+  margin: 5%;
 }
