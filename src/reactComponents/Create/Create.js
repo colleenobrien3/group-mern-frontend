@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Create.css";
 import axios from "axios";
-import Button from "../../storybookComponents/Button/Button";
+// import Button from "../../storybookComponents/Button/Button";
 
 class Create extends Component {
   constructor(props) {
@@ -28,6 +28,26 @@ class Create extends Component {
     e.persist();
     // e.preventDefault();
     this.setState({ [value]: e.target.value });
+  };
+
+  postRequest = e => {
+    e.preventDefault();
+    let url = "http://localhost:8080/";
+    axios
+      .post(url, {
+        name: this.state.name,
+        author: this.state.author,
+        cuisine: this.state.cuisine,
+        course: this.state.course,
+        cooktime: this.state.cooktime,
+        ingredients: this.state.ingredients,
+        steps: this.state.steps,
+        image: this.state.image
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
   };
   // Creating ingredient object and clearing ingredient input
   setIngredient = e => {
