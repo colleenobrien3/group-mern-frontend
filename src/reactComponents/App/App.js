@@ -4,7 +4,7 @@ import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import Input from "../../storybookComponents/Input/Input";
 import { Route, Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 
@@ -39,7 +39,6 @@ class App extends Component {
       .then(res => {
         this.setState({ recipes: res.data });
         console.log(res);
-        console.log(this.state.recipes);
       })
       .catch(err => {
         console.error(err);
@@ -47,7 +46,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.recipes)
     return (
       <div className="App">
         <header className="App-header">
@@ -70,7 +68,9 @@ class App extends Component {
           <Route
             path="/home"
             exact
-            render={routerProps => <Home {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Home {...routerProps} recipe={this.state.recipes} />
+            )}
           />
           <Route
             path="/create"
