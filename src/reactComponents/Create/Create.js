@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Create.css";
+import axios from "axios";
 import Button from "../../storybookComponents/Button/Button";
 
 class Create extends Component {
@@ -107,31 +108,37 @@ class Create extends Component {
               type="text"
               placeholder="author"
               onChange={this.setInput}
+              className="author"
             ></input>
             <input
               type="text"
               placeholder="cuisine"
               onChange={this.setInput}
+              className="cuisine"
             ></input>
             <input
               type="text"
               placeholder="name"
               onChange={this.setInput}
+              className="name"
             ></input>
             <input
               type="text"
               placeholder="cooktime"
               onChange={this.setInput}
+              className="cooktime"
             ></input>
             <input
               type="text"
               placeholder="image"
               onChange={this.setInput}
+              className="image"
             ></input>
             <input
               type="text"
               placeholder="course"
               onChange={this.setInput}
+              className="course"
             ></input>
           </form>
           <form className="form-ingredients" onSubmit={this.setIngredient}>
@@ -169,6 +176,9 @@ class Create extends Component {
             </button>
             <button type="submit">+</button>
           </form>
+          <button type="submit" onClick={this.postRequest}>
+            Submit
+          </button>
         </div>
         <div className="list-container">
           <ul className="list">{list}</ul>
