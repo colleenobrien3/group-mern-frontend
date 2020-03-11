@@ -9,8 +9,14 @@ const CardContainer = props => {
   //     console.log(props.recipes[i]);
   //   }
   let cards = props.recipes.map((item, index) => {
-    // console.log(item);
-    return <RecipeCard key={index} data={props.recipes[index]} />;
+    console.log(props.refresh);
+    return (
+      <RecipeCard
+        key={index}
+        data={props.recipes[index]}
+        delete={props.delete}
+      />
+    );
   });
 
   return <div className="homeContainer">{cards}</div>;
