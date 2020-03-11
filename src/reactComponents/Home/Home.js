@@ -5,7 +5,7 @@ import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
 
 const Home = props => {
   return (
-    <div>
+    <div className="homeContainer">
       <Input
         formLabel="Sign Up"
         placeHolderName="Name"
@@ -13,11 +13,13 @@ const Home = props => {
         buttonLabel="Redeem"
         onSubmit={(arg, arg2) => alert(arg + arg2)}
       />
-      <RecipeCard
-        title="pizza"
-        ingredients={["cheese", "sauce"]}
-        steps={["make", "eat"]}
-      />
+      <div className="homeCardContainer">
+        <RecipeCard
+          title="pizza"
+          ingredients={["cheese", "sauce"]}
+          steps={["make", "eat"]}
+        />
+      </div>
     </div>
   );
 };

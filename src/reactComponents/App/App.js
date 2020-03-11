@@ -11,6 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      recipes: [],
       navOpen: false
     };
   }
@@ -29,16 +30,33 @@ class App extends Component {
       this.setState({ navOpen: false });
     }
   };
+
+  componentDidMount() {
+    let url = "http://localhost:8080/";
+    let recipes = "";
+    let recipesState = [];
+    fetch(url)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .then(response => {
+        recipes = response;
+        recipes.forEach(item => {
+          recipesState.push(item);
+          this.setState({ recipes: recipesState });
+          console.log(this.state);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
   render() {
     return (
-      
       <div className="App">
         <header className="App-header">
           <Button label="Home" />
           <img src={logo} className="App-logo" alt="logo" />
-          {/* <button label="---" onClick={this.showNav}>
-            hi
-          </button> */}
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
@@ -77,7 +95,7 @@ class App extends Component {
           </p>
         </footer>
       </div>
-  );
+    );
   }
 }
 
