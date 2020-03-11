@@ -31,6 +31,7 @@ class App extends Component {
   };
   render() {
     return (
+      
       <div className="App">
         <header className="App-header">
           <Button label="Home" />
@@ -71,12 +72,12 @@ class App extends Component {
           <p>
             &copy; 2020 Copyright
             <a className="A" href="http://www" target="_blank">
-              www.somethimg.com
+              www.somthimg.com
             </a>
           </p>
         </footer>
       </div>
-    );
+  );
   }
 }
 
