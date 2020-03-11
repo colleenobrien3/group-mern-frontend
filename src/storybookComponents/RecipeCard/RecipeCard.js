@@ -17,7 +17,7 @@ const RecipeCard = props => {
   });
 
   return (
-    <div class="recipeCard">
+    <div className="recipeCard">
       <h2 className="recipeName">{recipe.name}</h2>
       <p>Author: {recipe.author}</p>
       <h3>Cuisine: {recipe.cuisine}</h3>
