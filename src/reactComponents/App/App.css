@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
 }
@@ -101,3 +106,4 @@ nav p:hover {
   font-weight: bold;
 }
 */
+
