@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "../../logo.svg";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
-import Input from "../../storybookComponents/Input/Input";
+// import Input from "../../storybookComponents/Input/Input";
 import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import Home from "../Home/Home";
