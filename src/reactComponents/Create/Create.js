@@ -33,7 +33,7 @@ class Create extends Component {
   };
 
   postRequest = e => {
-    e.preventDefault();
+    // e.preventDefault();
     e.persist();
     let url = "http://localhost:8080/";
     axios
