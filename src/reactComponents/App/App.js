@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       recipes: [],
       navOpen: false,
-      deleted: false
+      deleted: false,
+      liked: false
     };
   }
   showNav = e => {
@@ -42,11 +43,17 @@ class App extends Component {
   deleteCard = e => {
     e.persist();
     axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
-      console.log(res);
       this.setState({ deleted: true });
     });
-    console.log(e.target.id);
-    console.log(this.state);
+  };
+
+  like = e => {
+    e.persist();
+    let number = e.target.firstElementChild.childNodes[1].innerHTML;
+    number = Number(number);
+    axios
+      .put(`http://localhost:8080/${e.target.id}`, { likes: number + 1 })
+      .then(this.setState({ liked: true }));
   };
 
   componentDidMount() {
@@ -71,8 +78,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.posted);
-    if (this.state.deleted || this.state.posted) {
+    console.log(this.state.liked);
+    if (this.state.deleted || this.state.posted || this.state.liked) {
       let url = "";
       if (process.env.NODE_ENV === "production") {
         url = "https://recipe-roledex.herokuapp.com/";
@@ -83,7 +90,12 @@ class App extends Component {
       axios
         .get(url)
         .then(res => {
-          this.setState({ recipes: res.data, deleted: false, posted: false });
+          this.setState({
+            recipes: res.data,
+            deleted: false,
+            posted: false
+            // liked: false
+          });
           console.log(res);
           console.log(process.env.NODE_ENV);
         })
@@ -103,16 +115,15 @@ class App extends Component {
           <div className="close-nav" onClick={this.closeNav}>
             X
           </div>
-         <div>
-          <Link to="/home">
-            <p>Home</p>
-          </Link>
+          <div>
+            <Link to="/home">
+              <p>Home</p>
+            </Link>
           </div>
-          
+
           <Link to="/create">
             <p>Create</p>
           </Link>
-          
         </nav>
         <main>
           <Route
@@ -123,6 +134,7 @@ class App extends Component {
                 {...routerProps}
                 recipe={this.state.recipes}
                 delete={this.deleteCard}
+                like={this.like}
               />
             )}
           />

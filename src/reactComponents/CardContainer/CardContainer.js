@@ -10,6 +10,7 @@ const CardContainer = props => {
         key={index}
         data={props.recipes[index]}
         delete={props.delete}
+        like={props.like}
       />
     );
   });
