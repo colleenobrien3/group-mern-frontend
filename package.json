@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/react": "^5.3.14"
+    "@storybook/react": "^5.3.14",
+    "jest": "^25.1.0"
   }
 }
