@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 import "./Input.css";
 
 class Input extends Component {
@@ -27,7 +28,9 @@ class Input extends Component {
           onChange={this.props.setPassword}
         ></input>
         <br />
-        <button onClick={this.props.signUp}>{this.props.buttonLabel}</button>
+        <Link to='/response'>
+          <button onClick={this.props.signUp}>{this.props.buttonLabel}</button>
+        </Link>
       </form>
     );
   }
