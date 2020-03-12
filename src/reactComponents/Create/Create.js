@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import "./Create.css";
 import axios from "axios";
-import { Route, Link, Redirect } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
 // import Button from "../../storybookComponents/Button/Button";
-
+let reset = {
+  name: "",
+  author: "",
+  cuisine: "",
+  course: "",
+  cooktime: "",
+  ingredients: [],
+  steps: [],
+  image: "",
+  ingName: "",
+  measurementValue: "",
+  measurementType: "",
+  currentStep: ""
+};
 class Create extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +61,7 @@ class Create extends Component {
         image: this.state.image
       })
       .then(res => {
-        console.log(res);
+        this.setState(reset);
       })
       .catch(err => console.log(err));
   };
@@ -186,11 +199,12 @@ class Create extends Component {
             </button>
             <button type="submit">+</button>
           </form>
-          <Link to="/">
+          <div onClick={this.props.post}>
             <button type="submit" onClick={this.postRequest}>
               Submit
             </button>
-          </Link>
+            <Link to="/">Back Home</Link>
+          </div>
         </div>
         <RecipeCard data={this.state} />
         {/* <div className="list-container">
@@ -202,4 +216,4 @@ class Create extends Component {
   }
 }
 
-export default Create;
+export default withRouter(Create);

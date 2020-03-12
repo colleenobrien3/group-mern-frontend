@@ -4,8 +4,14 @@
 }
 
 a {
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  
+ 
   text-decoration: none;
 }
+
 
 .App {
   text-align: center;
@@ -34,6 +40,7 @@ a {
   color: #61dafb;
 }
 .hamburger {
+  background-color: aliceblue;
   border: solid;
   height: 8vh;
   width: 6%;
@@ -48,14 +55,17 @@ nav {
   width: 0;
   position: fixed;
   transition: width 1s;
-  background-color: gray;
+  background-color:  gray;
   text-decoration: none !important;
   display: flex;
   flex-direction: row;
   justify-content: left;
-  font-size: 20px;
+  font-size: 21px;
+  opacity: .7
+  
 }
 nav p {
+  padding-top: 26px !important; 
   transition: 0.3s;
   margin: 0 auto;
   width: 0;

@@ -16,9 +16,8 @@ class App extends Component {
       recipes: [],
       navOpen: false,
       deleted: false,
-      posted: false
+      liked: false
     };
-    this.refreshDelete = this.refreshDelete.bind();
   }
   showNav = e => {
     if (this.state.navOpen === false) {
@@ -36,20 +35,26 @@ class App extends Component {
     }
   };
 
-  refreshDelete = () => {
+  refreshPost = () => {
     // e.preventDefault();
-    this.setState({ deleted: this.state.deleted + 1 });
+    this.setState({ posted: true });
   };
 
   deleteCard = e => {
     e.persist();
     console.log(e);
     axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
-      console.log(res);
       this.setState({ deleted: true });
     });
-    console.log(e.target.id);
-    console.log(this.state);
+  };
+
+  like = e => {
+    e.persist();
+    let number = e.target.firstElementChild.childNodes[1].innerHTML;
+    number = Number(number);
+    axios
+      .put(`http://localhost:8080/${e.target.id}`, { likes: number + 1 })
+      .then(this.setState({ liked: true }));
   };
 
   componentDidMount() {
@@ -74,7 +79,8 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.deleted) {
+    console.log(this.state.liked);
+    if (this.state.deleted || this.state.posted || this.state.liked) {
       let url = "";
       if (process.env.NODE_ENV === "production") {
         url = "https://recipe-roledex.herokuapp.com/";
@@ -85,7 +91,12 @@ class App extends Component {
       axios
         .get(url)
         .then(res => {
-          this.setState({ recipes: res.data, deleted: false });
+          this.setState({
+            recipes: res.data,
+            deleted: false,
+            posted: false
+            // liked: false
+          });
           console.log(res);
           console.log(process.env.NODE_ENV);
         })
@@ -93,8 +104,7 @@ class App extends Component {
           console.error(err);
         });
     }
-    // console.log(this);
-    // console.log(this.state.deleted);
+    console.log(this.state.deleted);
     return (
       <div className="App">
         <header className="App-header">
@@ -106,9 +116,12 @@ class App extends Component {
           <div className="close-nav" onClick={this.closeNav}>
             X
           </div>
-          <Link to="/home">
-            <p>Home</p>
-          </Link>
+          <div>
+            <Link to="/home">
+              <p>Home</p>
+            </Link>
+          </div>
+
           <Link to="/create">
             <p>Create</p>
           </Link>
@@ -122,13 +135,20 @@ class App extends Component {
                 {...routerProps}
                 recipe={this.state.recipes}
                 delete={this.deleteCard}
+                like={this.like}
               />
             )}
           />
           <Route
             path="/create"
             exact
-            render={routerProps => <Create {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Create
+                {...routerProps}
+                {...this.state}
+                post={this.refreshPost}
+              />
+            )}
           />
           <Route path="/deleted">
             <Deleted />
@@ -141,7 +161,7 @@ class App extends Component {
             <br></br>
             &copy; 2020 Copyright
             {/* <a className="A" href="http://www" target="_blank">
-              www.somthimg.com
+              www.somth img.com
             </a> */}
           </h4>
         </footer>
