@@ -8,7 +8,11 @@ const Home = props => {
   return (
     <div className="homeContainer">
       <div className="homeCardContainer">
-        <CardContainer recipes={props.recipe} delete={props.delete} />
+        <CardContainer
+          recipes={props.recipe}
+          delete={props.delete}
+          like={props.like}
+        />
       </div>
     </div>
   );

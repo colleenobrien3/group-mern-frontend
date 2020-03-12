@@ -9,15 +9,23 @@ import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Deleted from "../Deleted/Deleted";
 
+let url = "";
+if (process.env.NODE_ENV === "production") {
+  url = "https://recipe-roledex.herokuapp.com/";
+}
+if (process.env.NODE_ENV === "development") {
+  url = "http://localhost:8080/";
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: [],
       navOpen: false,
-      deleted: false
+      deleted: false,
+      liked: false
     };
-    this.refreshDelete = this.refreshDelete.bind();
   }
   showNav = e => {
     if (this.state.navOpen === false) {
@@ -35,29 +43,35 @@ class App extends Component {
     }
   };
 
-  refreshDelete = () => {
+  refreshPost = () => {
     // e.preventDefault();
-    this.setState({ deleted: this.state.deleted + 1 });
+    this.setState({ posted: true });
   };
 
   deleteCard = e => {
     e.persist();
-    axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
-      console.log(res);
+    axios.delete(`${url}${e.target.id}`).then(res => {
       this.setState({ deleted: true });
     });
-    console.log(e.target.id);
-    console.log(this.state);
+  };
+
+  like = e => {
+    e.persist();
+    let number = e.target.firstElementChild.childNodes[1].innerHTML;
+    number = Number(number);
+    axios
+      .put(`${url}${e.target.id}`, { likes: number + 1 })
+      .then(this.setState({ liked: true }));
   };
 
   componentDidMount() {
-    let url = "";
-    if (process.env.NODE_ENV === "production") {
-      url = "https://recipe-roledex.herokuapp.com/";
-    }
-    if (process.env.NODE_ENV === "development") {
-      url = "http://localhost:8080/";
-    }
+    // let url = "";
+    // if (process.env.NODE_ENV === "production") {
+    //   url = "https://recipe-roledex.herokuapp.com/";
+    // }
+    // if (process.env.NODE_ENV === "development") {
+    //   url = "http://localhost:8080/";
+    // }
     // console.log(process.env.NODE_ENV)
     axios
       .get(url)
@@ -72,18 +86,24 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.deleted) {
-      let url = "";
-      if (process.env.NODE_ENV === "production") {
-        url = "https://recipe-roledex.herokuapp.com/";
-      }
-      if (process.env.NODE_ENV === "development") {
-        url = "http://localhost:8080/";
-      }
+    console.log(this.state.liked);
+    if (this.state.deleted || this.state.posted || this.state.liked) {
+      // let url = "";
+      // if (process.env.NODE_ENV === "production") {
+      //   url = "https://recipe-roledex.herokuapp.com/";
+      // }
+      // if (process.env.NODE_ENV === "development") {
+      //   url = "http://localhost:8080/";
+      // }
       axios
         .get(url)
         .then(res => {
-          this.setState({ recipes: res.data, deleted: false });
+          this.setState({
+            recipes: res.data,
+            deleted: false,
+            posted: false
+            // liked: false
+          });
           console.log(res);
           console.log(process.env.NODE_ENV);
         })
@@ -114,7 +134,6 @@ class App extends Component {
           <Link to="/create">
             <p>Create</p>
           </Link>
-          
         </nav>
 
         <main>
@@ -126,13 +145,20 @@ class App extends Component {
                 {...routerProps}
                 recipe={this.state.recipes}
                 delete={this.deleteCard}
+                like={this.like}
               />
             )}
           />
           <Route
             path="/create"
             exact
-            render={routerProps => <Create {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Create
+                {...routerProps}
+                {...this.state}
+                post={this.refreshPost}
+              />
+            )}
           />
           <Route path="/deleted">
             <Deleted />
@@ -146,7 +172,7 @@ class App extends Component {
             <br></br>
             &copy; 2020 Copyright
             {/* <a className="A" href="http://www" target="_blank">
-              www.somthimg.com
+              www.somth img.com
             </a> */}
           </h4>
         </footer>
