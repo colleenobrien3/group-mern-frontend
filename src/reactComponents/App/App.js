@@ -15,10 +15,8 @@ class App extends Component {
     this.state = {
       recipes: [],
       navOpen: false,
-      deleted: false,
-      posted: false
+      deleted: false
     };
-    this.refreshDelete = this.refreshDelete.bind();
   }
   showNav = e => {
     if (this.state.navOpen === false) {
@@ -36,9 +34,9 @@ class App extends Component {
     }
   };
 
-  refreshDelete = () => {
+  refreshPost = () => {
     // e.preventDefault();
-    this.setState({ deleted: this.state.deleted + 1 });
+    this.setState({ posted: true });
   };
 
   deleteCard = e => {
@@ -73,7 +71,8 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.deleted) {
+    console.log(this.state.posted);
+    if (this.state.deleted || this.state.posted) {
       let url = "";
       if (process.env.NODE_ENV === "production") {
         url = "https://recipe-roledex.herokuapp.com/";
@@ -84,7 +83,7 @@ class App extends Component {
       axios
         .get(url)
         .then(res => {
-          this.setState({ recipes: res.data, deleted: false });
+          this.setState({ recipes: res.data, deleted: false, posted: false });
           console.log(res);
           console.log(process.env.NODE_ENV);
         })
@@ -92,8 +91,7 @@ class App extends Component {
           console.error(err);
         });
     }
-    // console.log(this);
-    // console.log(this.state.deleted);
+    console.log(this.state.deleted);
     return (
       <div className="App">
         <header className="App-header">
@@ -105,12 +103,16 @@ class App extends Component {
           <div className="close-nav" onClick={this.closeNav}>
             X
           </div>
+         <div>
           <Link to="/home">
             <p>Home</p>
           </Link>
+          </div>
+          
           <Link to="/create">
             <p>Create</p>
           </Link>
+          
         </nav>
         <main>
           <Route
@@ -127,7 +129,13 @@ class App extends Component {
           <Route
             path="/create"
             exact
-            render={routerProps => <Create {...routerProps} {...this.state} />}
+            render={routerProps => (
+              <Create
+                {...routerProps}
+                {...this.state}
+                post={this.refreshPost}
+              />
+            )}
           />
           <Route path="/deleted">
             <Deleted />
@@ -140,7 +148,7 @@ class App extends Component {
             <br></br>
             &copy; 2020 Copyright
             {/* <a className="A" href="http://www" target="_blank">
-              www.somthimg.com
+              www.somth img.com
             </a> */}
           </h4>
         </footer>
