@@ -48,7 +48,13 @@ class Create extends Component {
   postRequest = e => {
     // e.preventDefault();
     e.persist();
-    let url = "http://localhost:8080/";
+    let url = "";
+    if (process.env.NODE_ENV === "production") {
+      url = "https://recipe-roledex.herokuapp.com/";
+    }
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:8080/";
+    }
     axios
       .post(url, {
         name: this.state.name,
