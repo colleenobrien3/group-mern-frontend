@@ -128,96 +128,99 @@ class Create extends Component {
   };
 
   render() {
-  
     return (
       <div className="create-wrapper">
-        <div className="create-container">
-          <h2>New Recipe</h2>
-          <form placeholder="create-recipe" id="thisContainer">
-            <input
-              type="text"
-              placeholder="title"
-              onChange={this.setInput}
-              className="name"
-            ></input>
-            <input
-              type="text"
-              placeholder="author"
-              onChange={this.setInput}
-              className="author"
-            ></input>
-            <input
-              type="text"
-              placeholder="cuisine"
-              onChange={this.setInput}
-              className="cuisine"
-            ></input>
-            <input
-              type="text"
-              placeholder="course"
-              onChange={this.setInput}
-              className="course"
-            ></input>
-            <input
-              type="text"
-              placeholder="cooktime"
-              onChange={this.setInput}
-              className="cooktime"
-            ></input>
-            <input
-              type="text"
-              placeholder="image"
-              onChange={this.setInput}
-              className="image"
-            ></input>
-          </form>
-          <form className="form-ingredients" onSubmit={this.setIngredient}>
-            <input
-              type="text"
-              placeholder="name (e.g. paprika, flour, chicken)"
-              onChange={this.setInput}
-              className="ingName"
-            ></input>
-            <input
-              type="text"
-              placeholder="value (e.g. 2, 2.25, 4)"
-              onChange={this.setInput}
-              className="measurementValue"
-            ></input>
-            <input
-              type="text"
-              placeholder="type (e.g. cups, tsp, tbsp)"
-              onChange={this.setInput}
-              className="measurementType"
-            ></input>
-            <button type="button" onClick={this.removeLastIngredient}>
-              -
-            </button>
-            <button type="submit"> + </button>
-          </form>
-          <form onSubmit={this.setStep}>
-            <input
-              className="currentStep"
-              placeholder="Wash Veggies..."
-              onChange={this.setInput}
-            ></input>
-            <button type="button" onClick={this.removeLastStep}>
-              -
-            </button>
-            <button type="submit">+</button>
-          </form>
-          <div onClick={this.props.post}>
-            <button type="submit" onClick={this.postRequest}>
-              Submit
-            </button>
-            <Link to="/">Back Home</Link>
+        {localStorage.token ? (
+          <>
+            <div className="create-container">
+              <h2>New Recipe</h2>
+              <form placeholder="create-recipe" id="thisContainer">
+                <input
+                  type="text"
+                  placeholder="title"
+                  onChange={this.setInput}
+                  className="name"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="author"
+                  onChange={this.setInput}
+                  className="author"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="cuisine"
+                  onChange={this.setInput}
+                  className="cuisine"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="course"
+                  onChange={this.setInput}
+                  className="course"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="cooktime"
+                  onChange={this.setInput}
+                  className="cooktime"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="image"
+                  onChange={this.setInput}
+                  className="image"
+                ></input>
+              </form>
+              <form className="form-ingredients" onSubmit={this.setIngredient}>
+                <input
+                  type="text"
+                  placeholder="name (e.g. paprika, flour, chicken)"
+                  onChange={this.setInput}
+                  className="ingName"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="value (e.g. 2, 2.25, 4)"
+                  onChange={this.setInput}
+                  className="measurementValue"
+                ></input>
+                <input
+                  type="text"
+                  placeholder="type (e.g. cups, tsp, tbsp)"
+                  onChange={this.setInput}
+                  className="measurementType"
+                ></input>
+                <button type="button" onClick={this.removeLastIngredient}>
+                  -
+                </button>
+                <button type="submit"> + </button>
+              </form>
+              <form onSubmit={this.setStep}>
+                <input
+                  className="currentStep"
+                  placeholder="Wash Veggies..."
+                  onChange={this.setInput}
+                ></input>
+                <button type="button" onClick={this.removeLastStep}>
+                  -
+                </button>
+                <button type="submit">+</button>
+              </form>
+              <div onClick={this.props.post}>
+                <button type="submit" onClick={this.postRequest}>
+                  Submit
+                </button>
+                <Link to="/">Back Home</Link>
+              </div>
+            </div>
+            <RecipeCard data={this.state} />{" "}
+          </>
+        ) : (
+          <div>
+            Please <Link to="/">Log In</Link>
           </div>
-        </div>
-        <RecipeCard data={this.state} />
-        {/* <div className="list-container">
-          <ul className="list">{list}</ul>
-          <ol className="list">{list2}</ol>
-        </div> */}
+        )}
       </div>
     );
   }

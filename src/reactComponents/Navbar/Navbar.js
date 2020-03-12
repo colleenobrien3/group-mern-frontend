@@ -6,7 +6,7 @@ const Navbar = props => {
   let linkTwo;
   let linkThree;
 
-  if (props.loggedIn === true) {
+  if (localStorage.token) {
     linkOne = (
       <Link to="/recipes" className="nav-link">
         <p>Recipes</p>
@@ -37,7 +37,7 @@ const Navbar = props => {
       <div className="close-nav" onClick={props.closeNav}>
         X
       </div>
-      <div className='flex'>
+      <div className="flex">
         {linkOne}
         {linkTwo}
         {linkThree}

@@ -50,6 +50,7 @@ class App extends Component {
         password: this.state.password
       })
       .then(res => {
+        console.log(localStorage);
         localStorage.token = res.data.token;
         this.setState({ loggedIn: true });
         console.log(localStorage.token);
@@ -69,7 +70,8 @@ class App extends Component {
       .then(res => {
         localStorage.token = res.data.token;
         this.setState({ loggedIn: true });
-        console.log(localStorage.token);
+        // console.log(localStorage);
+        // console.log(localStorage.token);
         console.log(this.state);
       })
       .catch(err => {
@@ -84,6 +86,7 @@ class App extends Component {
       loggedIn: false
     });
     localStorage.clear();
+    console.log();
   };
 
   showNav = e => {
@@ -137,6 +140,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(localStorage);
     console.log(this.state.liked);
     if (this.state.deleted || this.state.posted || this.state.liked) {
       axios
