@@ -16,7 +16,10 @@ class App extends Component {
       recipes: [],
       navOpen: false,
       deleted: false,
-      liked: false
+      liked: false,
+      email: "",
+      password: "",
+      loggedIn: false
     };
   }
   showNav = e => {
