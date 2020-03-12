@@ -21,7 +21,14 @@ const RecipeCard = props => {
   };
   return (
     <div className="recipeCard">
-      <div className="delete" onClick={props.delete} id={props.data._id}></div>
+      <div className="change">
+        <div
+          className="delete"
+          onClick={props.delete}
+          id={props.data._id}
+        ></div>
+        <div className="edit"></div>
+      </div>
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">
         <div className="card-content">
