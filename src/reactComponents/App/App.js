@@ -8,6 +8,9 @@ import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Deleted from "../Deleted/Deleted";
+import CardContainer from "../CardContainer/CardContainer";
+import Response from "../Response/Response";
+import Navbar from "../Navbar/Navbar";
 
 let url = "";
 if (process.env.NODE_ENV === "production") {
@@ -32,11 +35,55 @@ class App extends Component {
   }
 
   getInputName = event => {
-    this.setState({ name: event.target.value });
+    this.setState({ email: event.target.value });
   };
-  
+
   getInputPassword = event => {
     this.setState({ password: event.target.value });
+  };
+
+  signUp = e => {
+    // e.preventDefault();
+    axios
+      .post(`${url}users/signup`, {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => {
+        localStorage.token = res.data.token;
+        this.setState({ loggedIn: true });
+        console.log(localStorage.token);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  signIn = e => {
+    // e.preventDefault();
+    axios
+      .post(`${url}users/login`, {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => {
+        localStorage.token = res.data.token;
+        this.setState({ loggedIn: true });
+        console.log(localStorage.token);
+        console.log(this.state);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  logOut = e => {
+    this.setState({
+      email: "",
+      password: "",
+      loggedIn: false
+    });
+    localStorage.clear();
   };
 
   showNav = e => {
@@ -77,14 +124,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // let url = "";
-    // if (process.env.NODE_ENV === "production") {
-    //   url = "https://recipe-roledex.herokuapp.com/";
-    // }
-    // if (process.env.NODE_ENV === "development") {
-    //   url = "http://localhost:8080/";
-    // }
-    // console.log(process.env.NODE_ENV)
     axios
       .get(url)
       .then(res => {
@@ -100,13 +139,6 @@ class App extends Component {
   render() {
     console.log(this.state.liked);
     if (this.state.deleted || this.state.posted || this.state.liked) {
-      // let url = "";
-      // if (process.env.NODE_ENV === "production") {
-      //   url = "https://recipe-roledex.herokuapp.com/";
-      // }
-      // if (process.env.NODE_ENV === "development") {
-      //   url = "http://localhost:8080/";
-      // }
       axios
         .get(url)
         .then(res => {
@@ -114,7 +146,6 @@ class App extends Component {
             recipes: res.data,
             deleted: false,
             posted: false
-            // liked: false
           });
           console.log(res);
           console.log(process.env.NODE_ENV);
@@ -131,20 +162,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <Button label="===" handleClick={this.showNav} />
         </header>
-        <nav ref={c => (this._nav = c)}>
-          <div className="close-nav" onClick={this.closeNav}>
-            X
-          </div>
-          <div>
-            <Link to="/home">
-              <p>Home</p>
-            </Link>
-          </div>
-
-          <Link to="/create">
-            <p>Create</p>
-          </Link>
-        </nav>
+        <Navbar
+          closeNav={this.closeNav}
+          open={c => (this._nav = c)}
+          loggedIn={this.state.loggedIn}
+          logout={this.logOut}
+        />
         <main>
           <Route
             path="/"
@@ -155,6 +178,11 @@ class App extends Component {
                 recipe={this.state.recipes}
                 delete={this.deleteCard}
                 like={this.like}
+                setPassword={this.getInputPassword}
+                setEmail={this.getInputName}
+                signUp={this.signUp}
+                signIn={this.signIn}
+                loggedIn={this.state.loggedIn}
               />
             )}
           />
@@ -169,9 +197,23 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/deleted">
-            <Deleted />
-          </Route>
+          <Route
+            path="/recipes"
+            exact
+            render={routerProps => (
+              <CardContainer
+                {...routerProps}
+                recipes={this.state.recipes}
+                delete={this.deleteCard}
+                like={this.like}
+              />
+            )}
+          />
+          <Route
+            path="/response"
+            exact
+            render={() => <Response loggedIn={this.state.loggedIn} />}
+          />
         </main>
         <footer className="footer">
           <h4>

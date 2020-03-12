@@ -1,22 +1,10 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 import "./Input.css";
 
 class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      password: ""
-    };
-  }
-  getInputName = event => {
-    this.setState({ name: event.target.value });
-  };
-  getInputPassword = event => {
-    this.setState({ password: event.target.value });
-  };
   render() {
-    let classList = "";
+    let classList = "signUp";
     if (this.props.large) {
       classList += ` Input-large`;
     }
@@ -29,18 +17,20 @@ class Input extends Component {
         }}
         id="thisContainer"
       >
-        <h4>{this.props.formLabel}</h4>
+        <div>{this.props.formLabel}</div>
         <input
           placeholder={this.props.placeHolderName || this.props.label}
-          onChange={event => this.getInputName(event)}
+          onChange={this.props.setEmail}
         ></input>
         <br />
         <input
           placeholder={this.props.placeHolderPWord || this.props.label}
-          onChange={event => this.getInputPassword(event)}
+          onChange={this.props.setPassword}
         ></input>
         <br />
-        <button>{this.props.buttonLabel}</button>
+        <Link to='/response'>
+          <button onClick={this.props.signUp}>{this.props.buttonLabel}</button>
+        </Link>
       </form>
     );
   }
