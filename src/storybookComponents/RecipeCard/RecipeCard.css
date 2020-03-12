@@ -1,7 +1,12 @@
+
+* {
+  box-sizing: border-box;
+}
+
 .recipeCard {
   /* height: 200px; */
   margin-bottom: 20px;
-  width: 500px;
+  width: 350px;
   padding: 6% 2%;
   padding-top: 4%;
   background-color: whitesmoke;
@@ -102,14 +107,76 @@ li {
   cursor: pointer;
 }
 
-.change {
-  display: flex;
+
+
+@media only screen and (min-width: 1280px) {
+  .recipeCard {
+    width: 60%;
+    /* margin: 0 auto; */
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .recipeCard .social {
+    width: 60px;
+    display: block;
+  }
+  .recipeCard .social h1 {
+    margin: 0px;
+  }
+}
+ @media only screen and (max-width: 950px) {
+  .recipeCard  {
+    width: 33%;
+  }
+  .recipeCard .col h1 {
+    font-size: 14px;
+  }
+  .recipeCard .col ul li {
+    font-size: 13px;
+  }
+} 
+@media only screen and (max-width: 500px) {
+    .recipeCard .col {
+      width: 50%;
+    }
+    .recipeCard .col h1 {
+      font-size: 14px;
+    }
+    .recipeCard .col ul li {
+      font-size: 13px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .recipeCard {
+    width: 100%;
+  }
+   .recipeCard {
+    width: 243px;
+  } 
+  .spanrecipeCard {
+    flex-direction: column;
+  }
+  .cardSpan {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+  
 }
 
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+  
+}
 
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width:100%;
-  }
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  
 }

@@ -32,10 +32,12 @@ const RecipeCard = props => {
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">
         <div className="card-content">
-          <p className="bold">Author: {recipe.author}</p>
-          <p className="bold">Cuisine: {recipe.cuisine}</p>
-          <p className="bold">Course: {recipe.course}</p>
-          <p className="bold">Cooktime: {recipe.cooktime}</p>
+          <ul>
+          <li className="bold">Author: {recipe.author}</li>
+          <li className="bold">Cuisine: {recipe.cuisine}</li>
+          <li className="bold">Course: {recipe.course}</li>
+          <li className="bold">Cooktime: {recipe.cooktime}</li>
+          </ul>
         </div>
         <div className="card-picture" style={picture}></div>
       </div>

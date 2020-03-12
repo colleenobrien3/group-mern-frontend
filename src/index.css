@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*
+@media only screen and (min-width: 1280px) {
+  .body {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .body .social {
+    width: 1000px;
+    display: block;
+  }
+  .body h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .body .col {
+    width: 33%;
+  }
+  .body .col h1 {
+    font-size: 14px;
+  }
+  .body .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .body .col {
+      width: 50%;
+    }
+    .body .col h1 {
+      font-size: 14px;
+    }
+    .body .col ul li {
+      font-size: 13px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .body .col {
+    width: 100%;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+  
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  
+}
