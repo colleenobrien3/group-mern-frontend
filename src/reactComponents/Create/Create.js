@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Create.css";
 import axios from "axios";
+import { Route, Link, Redirect } from "react-router-dom";
+import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
 // import Button from "../../storybookComponents/Button/Button";
 
 class Create extends Component {
@@ -32,6 +34,7 @@ class Create extends Component {
 
   postRequest = e => {
     e.preventDefault();
+    e.persist();
     let url = "http://localhost:8080/";
     axios
       .post(url, {
@@ -106,24 +109,17 @@ class Create extends Component {
   };
 
   render() {
-    let list = this.state.ingredients.map(ingredient => {
-      return (
-        <li
-          key={ingredient.name}
-        >{`${ingredient.measurementValue} ${ingredient.measurementType} of ${ingredient.name}`}</li>
-      );
-    });
-
-    let list2 = this.state.steps.map((step, index) => {
-      return <li key={index}>{step}</li>;
-    });
-
-    console.log(this.state);
     return (
       <div className="create-wrapper">
         <div className="create-container">
           <h2>New Recipe</h2>
           <form placeholder="create-recipe" id="thisContainer">
+            <input
+              type="text"
+              placeholder="title"
+              onChange={this.setInput}
+              className="name"
+            ></input>
             <input
               type="text"
               placeholder="author"
@@ -138,9 +134,9 @@ class Create extends Component {
             ></input>
             <input
               type="text"
-              placeholder="name"
+              placeholder="course"
               onChange={this.setInput}
-              className="name"
+              className="course"
             ></input>
             <input
               type="text"
@@ -153,12 +149,6 @@ class Create extends Component {
               placeholder="image"
               onChange={this.setInput}
               className="image"
-            ></input>
-            <input
-              type="text"
-              placeholder="course"
-              onChange={this.setInput}
-              className="course"
             ></input>
           </form>
           <form className="form-ingredients" onSubmit={this.setIngredient}>
@@ -196,14 +186,17 @@ class Create extends Component {
             </button>
             <button type="submit">+</button>
           </form>
-          <button type="submit" onClick={this.postRequest}>
-            Submit
-          </button>
+          <Link to="/">
+            <button type="submit" onClick={this.postRequest}>
+              Submit
+            </button>
+          </Link>
         </div>
-        <div className="list-container">
+        <RecipeCard data={this.state} />
+        {/* <div className="list-container">
           <ul className="list">{list}</ul>
           <ol className="list">{list2}</ol>
-        </div>
+        </div> */}
       </div>
     );
   }
