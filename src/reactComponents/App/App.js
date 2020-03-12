@@ -3,7 +3,7 @@ import logo from "../../logo.svg";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 // import Input from "../../storybookComponents/Input/Input";
-import { Route, Link, Redirect } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
@@ -24,9 +24,21 @@ class App extends Component {
       recipes: [],
       navOpen: false,
       deleted: false,
-      liked: false
+      liked: false,
+      email: "",
+      password: "",
+      loggedIn: false
     };
   }
+
+  getInputName = event => {
+    this.setState({ name: event.target.value });
+  };
+  
+  getInputPassword = event => {
+    this.setState({ password: event.target.value });
+  };
+
   showNav = e => {
     if (this.state.navOpen === false) {
       e.preventDefault();
@@ -77,7 +89,7 @@ class App extends Component {
       .get(url)
       .then(res => {
         this.setState({ recipes: res.data });
-        console.log(res);
+        // console.log(res);
         console.log(process.env.NODE_ENV);
       })
       .catch(err => {
