@@ -8,6 +8,7 @@ import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Deleted from "../Deleted/Deleted";
+import CardContainer from "../CardContainer/CardContainer";
 
 let url = "";
 if (process.env.NODE_ENV === "production") {
@@ -32,9 +33,9 @@ class App extends Component {
   }
 
   getInputName = event => {
-    this.setState({ name: event.target.value });
+    this.setState({ email: event.target.value });
   };
-  
+
   getInputPassword = event => {
     this.setState({ password: event.target.value });
   };
@@ -155,6 +156,8 @@ class App extends Component {
                 recipe={this.state.recipes}
                 delete={this.deleteCard}
                 like={this.like}
+                setPassword={this.getInputPassword}
+                setEmail={this.getInputName}
               />
             )}
           />
@@ -169,9 +172,18 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/deleted">
-            <Deleted />
-          </Route>
+          <Route
+            path="/recipes"
+            exact
+            render={routerProps => (
+              <CardContainer
+                {...routerProps}
+                recipes={this.state.recipes}
+                delete={this.deleteCard}
+                like={this.like}
+              />
+            )}
+          />
         </main>
         <footer className="footer">
           <h4>

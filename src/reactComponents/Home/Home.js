@@ -8,11 +8,7 @@ const Home = props => {
   return (
     <div className="homeContainer">
       <div className="homeCardContainer">
-        <CardContainer
-          recipes={props.recipe}
-          delete={props.delete}
-          like={props.like}
-        />
+        <Input setPassword={props.setPassword} setEmail={props.setEmail} />
       </div>
     </div>
   );

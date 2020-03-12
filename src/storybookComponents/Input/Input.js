@@ -2,19 +2,6 @@ import React, { Component } from "react";
 import "./Input.css";
 
 class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      password: ""
-    };
-  }
-  getInputName = event => {
-    this.setState({ name: event.target.value });
-  };
-  getInputPassword = event => {
-    this.setState({ password: event.target.value });
-  };
   render() {
     let classList = "";
     if (this.props.large) {
@@ -32,12 +19,12 @@ class Input extends Component {
         <h4>{this.props.formLabel}</h4>
         <input
           placeholder={this.props.placeHolderName || this.props.label}
-          onChange={event => this.getInputName(event)}
+          onChange={this.props.setEmail}
         ></input>
         <br />
         <input
           placeholder={this.props.placeHolderPWord || this.props.label}
-          onChange={event => this.getInputPassword(event)}
+          onChange={this.props.setPassword}
         ></input>
         <br />
         <button>{this.props.buttonLabel}</button>
