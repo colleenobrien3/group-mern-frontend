@@ -9,6 +9,14 @@ import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Deleted from "../Deleted/Deleted";
 
+let url = "";
+if (process.env.NODE_ENV === "production") {
+  url = "https://recipe-roledex.herokuapp.com/";
+}
+if (process.env.NODE_ENV === "development") {
+  url = "http://localhost:8080/";
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +50,7 @@ class App extends Component {
 
   deleteCard = e => {
     e.persist();
-    axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
+    axios.delete(`${url}${e.target.id}`).then(res => {
       this.setState({ deleted: true });
     });
   };
@@ -52,18 +60,18 @@ class App extends Component {
     let number = e.target.firstElementChild.childNodes[1].innerHTML;
     number = Number(number);
     axios
-      .put(`http://localhost:8080/${e.target.id}`, { likes: number + 1 })
+      .put(`${url}${e.target.id}`, { likes: number + 1 })
       .then(this.setState({ liked: true }));
   };
 
   componentDidMount() {
-    let url = "";
-    if (process.env.NODE_ENV === "production") {
-      url = "https://recipe-roledex.herokuapp.com/";
-    }
-    if (process.env.NODE_ENV === "development") {
-      url = "http://localhost:8080/";
-    }
+    // let url = "";
+    // if (process.env.NODE_ENV === "production") {
+    //   url = "https://recipe-roledex.herokuapp.com/";
+    // }
+    // if (process.env.NODE_ENV === "development") {
+    //   url = "http://localhost:8080/";
+    // }
     // console.log(process.env.NODE_ENV)
     axios
       .get(url)
@@ -80,13 +88,13 @@ class App extends Component {
   render() {
     console.log(this.state.liked);
     if (this.state.deleted || this.state.posted || this.state.liked) {
-      let url = "";
-      if (process.env.NODE_ENV === "production") {
-        url = "https://recipe-roledex.herokuapp.com/";
-      }
-      if (process.env.NODE_ENV === "development") {
-        url = "http://localhost:8080/";
-      }
+      // let url = "";
+      // if (process.env.NODE_ENV === "production") {
+      //   url = "https://recipe-roledex.herokuapp.com/";
+      // }
+      // if (process.env.NODE_ENV === "development") {
+      //   url = "http://localhost:8080/";
+      // }
       axios
         .get(url)
         .then(res => {
