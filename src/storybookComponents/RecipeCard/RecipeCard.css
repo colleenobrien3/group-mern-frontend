@@ -38,6 +38,14 @@
   width: 230px;
   height: 150px;
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.cardSpan p {
+  font-weight: 600;
+  margin: 7px auto;
+  border-bottom: 1px solid #bbdefd;
+  width: fit-content;
 }
 
 .spanContainer {
@@ -53,10 +61,12 @@
 }
 .step-list {
   padding: 0% 10%;
+  width: 60%;
 }
 
-.ingredient-list{
+.ingredient-list {
   padding: 0% 5%;
+  width: 40%;
 }
 
 ul {
@@ -69,14 +79,14 @@ ol {
   padding-left: 20px;
 }
 
-li{
+li {
   text-align: left;
 }
 
 .delete {
   height: 20px;
   width: 20px;
-  background-image: url('../../images/trash.svg');
+  background-image: url("../../images/trash.svg");
   background-size: cover;
   background-position: center;
   cursor: pointer;

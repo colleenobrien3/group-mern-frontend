@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       recipes: [],
       navOpen: false,
-      deleted: false
+      deleted: false,
+      posted: false
     };
     this.refreshDelete = this.refreshDelete.bind();
   }
@@ -91,7 +92,8 @@ class App extends Component {
           console.error(err);
         });
     }
-    console.log(this.state.deleted);
+    // console.log(this);
+    // console.log(this.state.deleted);
     return (
       <div className="App">
         <header className="App-header">
