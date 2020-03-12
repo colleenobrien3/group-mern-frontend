@@ -42,6 +42,7 @@ class App extends Component {
 
   deleteCard = e => {
     e.persist();
+    console.log(e);
     axios.delete(`http://localhost:8080/${e.target.id}`).then(res => {
       console.log(res);
       this.setState({ deleted: true });
@@ -63,7 +64,7 @@ class App extends Component {
       .get(url)
       .then(res => {
         this.setState({ recipes: res.data });
-        console.log(res);
+        // console.log(res);
         console.log(process.env.NODE_ENV);
       })
       .catch(err => {

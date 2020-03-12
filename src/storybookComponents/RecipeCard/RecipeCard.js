@@ -3,7 +3,7 @@ import "./RecipeCard.css";
 
 const RecipeCard = props => {
   let recipe = props.data;
-  console.log(recipe);
+  // console.log(recipe);
 
   let steps = recipe.steps.map((item, index) => {
     return <li key={index}>{item}</li>;
