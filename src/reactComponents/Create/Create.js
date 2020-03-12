@@ -128,7 +128,7 @@ class Create extends Component {
   };
 
   render() {
-    console.log(this.props)
+  
     return (
       <div className="create-wrapper">
         <div className="create-container">

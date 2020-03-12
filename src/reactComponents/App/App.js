@@ -9,8 +9,8 @@ import Home from "../Home/Home";
 import Create from "../Create/Create";
 import Deleted from "../Deleted/Deleted";
 import CardContainer from "../CardContainer/CardContainer";
-import Response from "../Response/Response"
-import Navbar from '../Navbar/Navbar'
+import Response from "../Response/Response";
+import Navbar from "../Navbar/Navbar";
 
 let url = "";
 if (process.env.NODE_ENV === "production") {
@@ -75,6 +75,15 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  logOut = e => {
+    this.setState({
+      email: "",
+      password: "",
+      loggedIn: false
+    });
+    localStorage.clear();
   };
 
   showNav = e => {
@@ -153,7 +162,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <Button label="===" handleClick={this.showNav} />
         </header>
-        <Navbar closeNav={this.closeNav} open={c => (this._nav = c)} />
+        <Navbar
+          closeNav={this.closeNav}
+          open={c => (this._nav = c)}
+          loggedIn={this.state.loggedIn}
+        />
         <main>
           <Route
             path="/"
