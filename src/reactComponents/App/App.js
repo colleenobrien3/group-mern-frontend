@@ -103,16 +103,15 @@ class App extends Component {
           <div className="close-nav" onClick={this.closeNav}>
             X
           </div>
-         <div>
-          <Link to="/home">
-            <p>Home</p>
-          </Link>
+          <div>
+            <Link to="/">
+              <p>Home</p>
+            </Link>
           </div>
-          
+
           <Link to="/create">
             <p>Create</p>
           </Link>
-          
         </nav>
         <main>
           <Route
