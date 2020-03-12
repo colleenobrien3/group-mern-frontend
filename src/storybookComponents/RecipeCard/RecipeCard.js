@@ -38,7 +38,7 @@ const RecipeCard = props => {
           <ul>{ingredients}</ul>
         </span>
         <span className="cardSpan step-list">
-          <p>Steps:</p>
+          <p>Instructions:</p>
           <ol>{steps}</ol>
         </span>
       </div>
