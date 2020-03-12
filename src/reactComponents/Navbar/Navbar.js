@@ -4,27 +4,32 @@ import { Link } from "react-router-dom";
 const Navbar = props => {
   let linkOne;
   let linkTwo;
+  let linkThree;
 
   if (props.loggedIn === true) {
     linkOne = (
-      <Link to="/recipes">
+      <Link to="/recipes" className="nav-link">
         <p>Recipes</p>
       </Link>
     );
     linkTwo = (
-      <Link to="/create">
+      <Link to="/create" className="nav-link">
         <p>Create</p>
       </Link>
     );
+    linkThree = (
+      <Link to="/" onClick={props.logout} className="nav-link">
+        <p>Log Out</p>
+      </Link>
+    );
   } else {
-      linkOne = (
-        <Link to="/">
-          <p>Sign In/Sign Up</p>
-        </Link>
-      );
-      linkTwo = (
-          null
-      )
+    linkOne = (
+      <Link to="/" className="nav-link">
+        <p>Sign In/Sign Up</p>
+      </Link>
+    );
+    linkTwo = null;
+    linkThree = null;
   }
 
   return (
@@ -32,11 +37,11 @@ const Navbar = props => {
       <div className="close-nav" onClick={props.closeNav}>
         X
       </div>
-      <div>
+      <div className='flex'>
         {linkOne}
+        {linkTwo}
+        {linkThree}
       </div>
-
-      {linkTwo}
     </nav>
   );
 };

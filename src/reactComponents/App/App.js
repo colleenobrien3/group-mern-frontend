@@ -166,6 +166,7 @@ class App extends Component {
           closeNav={this.closeNav}
           open={c => (this._nav = c)}
           loggedIn={this.state.loggedIn}
+          logout={this.logOut}
         />
         <main>
           <Route
