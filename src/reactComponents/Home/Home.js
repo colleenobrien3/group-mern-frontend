@@ -5,7 +5,6 @@ import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
 import CardContainer from "../CardContainer/CardContainer";
 
 const Home = props => {
-  console.log(props.refresh);
   return (
     <div className="homeContainer">
       <div className="homeCardContainer">
