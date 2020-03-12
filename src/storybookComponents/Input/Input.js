@@ -3,7 +3,7 @@ import "./Input.css";
 
 class Input extends Component {
   render() {
-    let classList = "";
+    let classList = "signUp";
     if (this.props.large) {
       classList += ` Input-large`;
     }
@@ -16,7 +16,7 @@ class Input extends Component {
         }}
         id="thisContainer"
       >
-        <h4>{this.props.formLabel}</h4>
+        <div>{this.props.formLabel}</div>
         <input
           placeholder={this.props.placeHolderName || this.props.label}
           onChange={this.props.setEmail}
@@ -27,7 +27,7 @@ class Input extends Component {
           onChange={this.props.setPassword}
         ></input>
         <br />
-        <button>{this.props.buttonLabel}</button>
+        <button onClick={this.props.signUp}>{this.props.buttonLabel}</button>
       </form>
     );
   }

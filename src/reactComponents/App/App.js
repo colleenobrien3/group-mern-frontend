@@ -40,6 +40,23 @@ class App extends Component {
     this.setState({ password: event.target.value });
   };
 
+  signUp = e => {
+    e.preventDefault();
+    axios
+      .post(`${url}users/signup`, {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => {
+        localStorage.token = res.data.token;
+        this.setState({ loggedIn: true });
+        console.log(localStorage.token)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   showNav = e => {
     if (this.state.navOpen === false) {
       e.preventDefault();
@@ -158,6 +175,7 @@ class App extends Component {
                 like={this.like}
                 setPassword={this.getInputPassword}
                 setEmail={this.getInputName}
+                signUp={this.signUp}
               />
             )}
           />

@@ -6,11 +6,17 @@ import CardContainer from "../CardContainer/CardContainer";
 
 const Home = props => {
   return (
-    <div className="homeContainer">
+    // <div className="homeContainer">
       <div className="homeCardContainer">
-        <Input setPassword={props.setPassword} setEmail={props.setEmail} />
+        <Input
+          setPassword={props.setPassword}
+          setEmail={props.setEmail}
+          signUp={props.signUp}
+          buttonLabel="Submit"
+          formLabel="Sign Up"
+        />
       </div>
-    </div>
+    // </div>
   );
 };
 
