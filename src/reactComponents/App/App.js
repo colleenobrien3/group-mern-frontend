@@ -22,6 +22,15 @@ class App extends Component {
       loggedIn: false
     };
   }
+
+  getInputName = event => {
+    this.setState({ name: event.target.value });
+  };
+  
+  getInputPassword = event => {
+    this.setState({ password: event.target.value });
+  };
+
   showNav = e => {
     if (this.state.navOpen === false) {
       e.preventDefault();
