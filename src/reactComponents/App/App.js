@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
+ import logo from "../../images/01_lpgo.png";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 // import Input from "../../storybookComponents/Input/Input";
@@ -96,24 +96,27 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Button label="Home" />
-          <img src={logo} className="App-logo" alt="logo" />
+          
+           <img src={logo} className="App-logo" alt="logo" />  
+
           <Button label="===" handleClick={this.showNav} />
         </header>
         <nav ref={c => (this._nav = c)}>
           <div className="close-nav" onClick={this.closeNav}>
             X
           </div>
-         <div>
-          <Link to="/home">
-            <p>Home</p>
-          </Link>
+          <div>
+            <Link to="/home">
+              <p>Home</p>
+            </Link>
           </div>
-          
+
           <Link to="/create">
             <p>Create</p>
           </Link>
           
         </nav>
+
         <main>
           <Route
             path="/"
@@ -135,6 +138,7 @@ class App extends Component {
             <Deleted />
           </Route>
         </main>
+
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien | Caio Ingber | Rachel Israel | Levani

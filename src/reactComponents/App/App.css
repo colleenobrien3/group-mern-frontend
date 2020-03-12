@@ -5,10 +5,8 @@
 
 a {
   justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  
- 
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-decoration: none;
 }
 
@@ -23,9 +21,18 @@ a {
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    align-content: center;
+    height: 180px;
+    /* animation: App-logo-spin infinite 20s linear; */
   }
 }
+.title{
+  
+  color:#9acff7;
+}
+
 .App-header {
   background-color: #e8f4f8;
   min-height: 10vh;
@@ -48,6 +55,7 @@ a {
   padding: 1%;
 }
 nav {
+  cursor: pointer;
   height: 100vh;
   z-index: 1;
   top: 0;
@@ -62,10 +70,18 @@ nav {
   justify-content: left;
   font-size: 21px;
   opacity: .7
+  }
   
-}
+  .close-nav{
+    font-size: 27px;
+    padding: 20px;
+    padding-top: 10px;
+    color: #e8f4f8;
+  }
+
 nav p {
-  padding-top: 26px !important; 
+  
+  padding-top: 36px !important; 
   transition: 0.3s;
   margin: 0 auto;
   width: 0;
@@ -83,14 +99,7 @@ nav p:hover {
   color: #61dafb;
   cursor: pointer;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 .footer p, h4{
   color: rgb(94, 94, 94);
   grid-row: 3;
