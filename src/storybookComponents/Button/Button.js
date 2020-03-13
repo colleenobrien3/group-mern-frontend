@@ -9,6 +9,7 @@ const Button = props => {
 
   return (
     <button className={classList} onClick={props.handleClick}>
+      <div className={props.background}></div>
       {props.label}
     </button>
   );
