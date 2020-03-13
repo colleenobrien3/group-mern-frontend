@@ -163,8 +163,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Button label="Home" />
-          <img src={logo} className="App-logo" alt="logo" />
-          <Button label="===" handleClick={this.showNav} />
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1>
+            <em>Recipe Rolodex</em>
+          </h1>
+          <Button label="" handleClick={this.showNav} background="hamburger" />
         </header>
         <Navbar
           closeNav={this.closeNav}

@@ -5,8 +5,10 @@
 }
 
 .create-container {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 .list-container {
   display: flex;
@@ -16,4 +18,22 @@
 
 .list {
   width: 50%;
+}
+
+.form-preview {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-radius: 10%;
+}
+
+.create-form {
+  width: 100%;
+  border-radius: 0;
 }
