@@ -1,14 +1,16 @@
-
+body{
+    margin: auto;
+}
 
 @media only screen and (min-width: 1280px) {
   .RecipeInput {
-    width: 1200px;
+    width: 200px;
     margin: 0 auto;
   }
 }
 @media only screen and (max-width: 1139px) {
   .RecipeInput .social {
-    width: 1000px;
+    width: 100px;
     display: block;
   }
   .RecipeInput .social h1 {

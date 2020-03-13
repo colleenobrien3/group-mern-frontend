@@ -115,7 +115,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
           <Button label="Home" />
           
            <img src={logo} className="App-logo" alt="logo" />  

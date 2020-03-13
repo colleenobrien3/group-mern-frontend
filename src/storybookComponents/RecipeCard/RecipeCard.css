@@ -124,9 +124,9 @@ li {
     margin: 0px;
   }
 }
- @media only screen and (max-width: 950px) {
+ /* @media only screen and (max-width: 950px) {
   .recipeCard  {
-    width: 33%;
+    width: 90%;
   }
   .recipeCard .col h1 {
     font-size: 14px;
@@ -134,7 +134,7 @@ li {
   .recipeCard .col ul li {
     font-size: 13px;
   }
-} 
+}  */
 @media only screen and (max-width: 500px) {
     .recipeCard .col {
       width: 50%;

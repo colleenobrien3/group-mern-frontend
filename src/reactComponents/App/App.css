@@ -21,8 +21,10 @@ a {
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-left: -50px;
+    margin-right: -50pX;
+    margin-bottom: 10px;
+    margin-top: 10px;
     align-content: center;
     height: 180px;
     /* animation: App-logo-spin infinite 20s linear; */
@@ -46,6 +48,7 @@ a {
 .App-link {
   color: #61dafb;
 }
+/* -------------- */
 .hamburger {
   background-color: aliceblue;
   border: solid;
@@ -92,14 +95,14 @@ nav p {
 }
 
 nav span {
-  margin: 6%;
+  margin: 16%;
   text-decoration: none !important;
 }
 nav p:hover {
   color: #61dafb;
   cursor: pointer;
 }
-
+/* --------------- */
 .footer p, h4{
   color: rgb(94, 94, 94);
   grid-row: 3;
