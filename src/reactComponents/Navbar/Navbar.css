@@ -8,11 +8,16 @@
   box-shadow: none !important;
   border: none;
   margin: 20px 0;
+  width: fit-content;
 }
 
 .nav-link:hover {
   color: #61dafb;
   cursor: pointer;
+}
+
+.nav-link p {
+  margin-bottom: 10px;
 }
 
 nav {
@@ -34,5 +39,4 @@ nav {
 
 .link-box {
   margin-top: 40px;
-  color: blue;
 }
