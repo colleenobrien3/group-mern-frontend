@@ -52,8 +52,10 @@ const RecipeCard = props => {
           <ol>{steps}</ol>
         </span>
       </div>
-      <div onClick={props.like} id={props.data._id}>
-        Like
+      <div onClick={props.like}>
+        <div className="likeButton" id={props.data._id}>
+          Like
+        </div>
         <div>
           Likes:
           <span>{recipe.likes}</span>

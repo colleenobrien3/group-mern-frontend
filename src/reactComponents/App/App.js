@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import logo from "../../images/01_lpgo.png";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
-// import Input from "../../storybookComponents/Input/Input";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import Home from "../Home/Home";
 import Create from "../Create/Create";
-import Deleted from "../Deleted/Deleted";
 import CardContainer from "../CardContainer/CardContainer";
 import Response from "../Response/Response";
 import Navbar from "../Navbar/Navbar";
@@ -119,12 +117,14 @@ class App extends Component {
 
   like = e => {
     e.persist();
-    console.log(e.target.firstElementChild.childNodes[1].innerHTML);
-    let number = e.target.firstElementChild.childNodes[1].innerHTML;
+    // console.dir(e.target.nextElementSibling.firstElementChild.innerHTML);
+
+    let number = e.target.nextElementSibling.firstElementChild.innerHTML;
     number = Number(number);
     axios
       .put(`${url}${e.target.id}`, { likes: number + 1 })
-      .then(this.setState({ liked: true }));
+      .then(this.setState({ liked: true }))
+      .catch(err => console.log(err));
   };
 
   componentDidMount() {
@@ -149,14 +149,15 @@ class App extends Component {
         .then(res => {
           this.setState({
             recipes: res.data,
-            deleted: false,
-            posted: false
-          }).then(() => {
-            this.setState({ liked: false });
-            // console.log(this.state.liked);
+            deleted: false
           });
           // console.log(res);
           // console.log(process.env.NODE_ENV);
+        })
+        .then(() => {
+          this.setState({
+            liked: false
+          });
         })
         .catch(err => {
           // console.error(err);
