@@ -26,7 +26,7 @@ const Navbar = props => {
   } else {
     linkOne = (
       <Link to="/" className="nav-link">
-        <p>Sign In/Sign Up</p>
+        <p>Sign In</p>
       </Link>
     );
     linkTwo = null;
