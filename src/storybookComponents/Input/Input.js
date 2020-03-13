@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./Input.css";
 
 class Input extends Component {
@@ -18,17 +18,21 @@ class Input extends Component {
         id="thisContainer"
       >
         <div>{this.props.formLabel}</div>
+        <label>Email</label>
         <input
           placeholder={this.props.placeHolderName || this.props.label}
           onChange={this.props.setEmail}
         ></input>
+
         <br />
+        <label> Password</label>
         <input
           placeholder={this.props.placeHolderPWord || this.props.label}
           onChange={this.props.setPassword}
         ></input>
+
         <br />
-        <Link to='/response'>
+        <Link to="/response">
           <button onClick={this.props.signUp}>{this.props.buttonLabel}</button>
         </Link>
       </form>

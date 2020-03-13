@@ -119,6 +119,7 @@ class App extends Component {
 
   like = e => {
     e.persist();
+    console.log(e.target.firstElementChild.childNodes[1].innerHTML);
     let number = e.target.firstElementChild.childNodes[1].innerHTML;
     number = Number(number);
     axios
@@ -140,7 +141,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(localStorage);
+    // console.log(localStorage);
     console.log(this.state.liked);
     if (this.state.deleted || this.state.posted || this.state.liked) {
       axios
@@ -150,12 +151,15 @@ class App extends Component {
             recipes: res.data,
             deleted: false,
             posted: false
+          }).then(() => {
+            this.setState({ liked: false });
+            // console.log(this.state.liked);
           });
-          console.log(res);
-          console.log(process.env.NODE_ENV);
+          // console.log(res);
+          // console.log(process.env.NODE_ENV);
         })
         .catch(err => {
-          console.error(err);
+          // console.error(err);
         });
     }
     console.log(this.state.deleted);
