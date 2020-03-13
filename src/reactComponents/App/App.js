@@ -117,11 +117,14 @@ class App extends Component {
 
   like = e => {
     e.persist();
-    let number = e.target.firstElementChild.childNodes[1].innerHTML;
+    // console.dir(e.target.nextElementSibling.firstElementChild.innerHTML);
+
+    let number = e.target.nextElementSibling.firstElementChild.innerHTML;
     number = Number(number);
     axios
       .put(`${url}${e.target.id}`, { likes: number + 1 })
-      .then(this.setState({ liked: true }));
+      .then(this.setState({ liked: true }))
+      .catch(err => console.log(err));
   };
 
   componentDidMount() {
@@ -146,11 +149,15 @@ class App extends Component {
         .then(res => {
           this.setState({
             recipes: res.data,
-            deleted: false,
-            posted: false
+            deleted: false
           });
           console.log(res);
           console.log(process.env.NODE_ENV);
+        })
+        .then(() => {
+          this.setState({
+            liked: false
+          });
         })
         .catch(err => {
           console.error(err);

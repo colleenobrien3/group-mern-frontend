@@ -38,6 +38,15 @@
   font-weight: 600;
 }
 
+.likeButton{
+  border: 1px solid #bbdefd;
+  background: white;
+  margin-top: 5px;
+  padding: 0%;
+  width: 50px;
+  margin: 5px auto;
+}
+
 .cardSpan {
   border: 1px solid #bbdefd;
   width: 230px;

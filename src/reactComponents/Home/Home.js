@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 
 const Home = props => {
   return (
-    // <div className="homeContainer">
     <div className="homeCardContainer">
       {localStorage.token ? (
         <Redirect to="/recipes" />
