@@ -2,12 +2,9 @@ import React from "react";
 import "./Home.css";
 import Input from "../../storybookComponents/Input/Input";
 import { Redirect } from "react-router-dom";
-import RecipeCard from "../../storybookComponents/RecipeCard/RecipeCard";
-import CardContainer from "../CardContainer/CardContainer";
 
 const Home = props => {
   return (
-    // <div className="homeContainer">
     <div className="homeCardContainer">
       {localStorage.token ? (
         <Redirect to="/recipes" />

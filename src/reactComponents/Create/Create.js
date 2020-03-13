@@ -199,10 +199,12 @@ class Create extends Component {
                       onChange={this.setInput}
                       className="measurementType"
                     ></input>
-                    <button type="button" onClick={this.removeLastIngredient}>
-                      -
-                    </button>
-                    <button type="submit"> + </button>
+                    <div>
+                      <button type="submit"> + </button>
+                      <button type="button" onClick={this.removeLastIngredient}>
+                        -
+                      </button>
+                    </div>
                   </form>
                   <form onSubmit={this.setStep} className="create-form">
                     <input
@@ -210,10 +212,12 @@ class Create extends Component {
                       placeholder="Wash Veggies..."
                       onChange={this.setInput}
                     ></input>
-                    <button type="button" onClick={this.removeLastStep}>
-                      -
-                    </button>
-                    <button type="submit">+</button>
+                    <div>
+                      <button type="submit"> + </button>
+                      <button type="button" onClick={this.removeLastStep}>
+                        -
+                      </button>
+                    </div>
                   </form>
                 </div>
                 <RecipeCard data={this.state} />
