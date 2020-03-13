@@ -1,0 +1,42 @@
+.nav-link {
+  padding-top: 26px !important;
+  transition: 0.3s;
+  margin: 0 auto;
+  width: 0;
+  text-decoration: none !important;
+  color: aliceblue;
+  box-shadow: none !important;
+  border: none;
+  margin: 20px 0;
+  width: fit-content;
+}
+
+.nav-link:hover {
+  color: #61dafb;
+  cursor: pointer;
+}
+
+.nav-link p {
+  margin-bottom: 10px;
+}
+
+nav {
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 0;
+  position: fixed;
+  transition: width 1s;
+  background-color: gray;
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  font-size: 21px;
+  opacity: 0.7;
+}
+
+.link-box {
+  margin-top: 40px;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
+import logo from "../../images/01_lpgo.png";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 import { Route } from "react-router-dom";
@@ -160,9 +160,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Button label="Home" />
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
+          {/* <Button label="Home" /> */}
           <img src={logo} className="App-logo" alt="logo" />
-          <Button label="===" handleClick={this.showNav} />
+          <h1>
+            <em>Recipe Rolodex</em>
+          </h1>
+          <Button label="" handleClick={this.showNav} background="hamburger" />
         </header>
         <Navbar
           closeNav={this.closeNav}
@@ -217,6 +221,7 @@ class App extends Component {
             render={() => <Response loggedIn={this.state.loggedIn} />}
           />
         </main>
+
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien | Caio Ingber | Rachel Israel | Levani
