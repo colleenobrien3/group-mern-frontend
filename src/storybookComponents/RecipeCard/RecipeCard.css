@@ -47,6 +47,10 @@
   margin: 5px auto;
 }
 
+.likeButton:hover{
+  background-color: aliceblue;
+}
+
 .cardSpan {
   border: 1px solid #bbdefd;
   width: 230px;
