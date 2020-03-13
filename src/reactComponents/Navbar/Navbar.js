@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = props => {
   let linkOne;
@@ -37,7 +38,7 @@ const Navbar = props => {
       <div className="close-nav" onClick={props.closeNav}>
         X
       </div>
-      <div className="flex">
+      <div className="link-box">
         {linkOne}
         {linkTwo}
         {linkThree}

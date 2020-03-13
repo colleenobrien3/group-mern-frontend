@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
+import logo from "../../images/01_lpgo.png";
 import "./App.css";
 import Button from "../../storybookComponents/Button/Button";
 // import Input from "../../storybookComponents/Input/Input";
@@ -162,6 +162,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
           <Button label="Home" />
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1>
@@ -222,6 +223,7 @@ class App extends Component {
             render={() => <Response loggedIn={this.state.loggedIn} />}
           />
         </main>
+
         <footer className="footer">
           <h4>
             CREATED BY | Colleen O'Brien | Caio Ingber | Rachel Israel | Levani

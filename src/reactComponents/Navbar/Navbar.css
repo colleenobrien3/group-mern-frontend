@@ -7,6 +7,7 @@
   color: aliceblue;
   box-shadow: none !important;
   border: none;
+  margin: 20px 0;
 }
 
 .nav-link:hover {
@@ -29,4 +30,9 @@ nav {
   justify-content: left;
   font-size: 21px;
   opacity: 0.7;
+}
+
+.link-box {
+  margin-top: 40px;
+  color: blue;
 }
