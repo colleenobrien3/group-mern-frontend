@@ -141,7 +141,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(localStorage);
+    // console.log(localStorage);
     console.log(this.state.liked);
     if (this.state.deleted || this.state.posted || this.state.liked) {
       axios
@@ -151,8 +151,8 @@ class App extends Component {
             recipes: res.data,
             deleted: false
           });
-          console.log(res);
-          console.log(process.env.NODE_ENV);
+          // console.log(res);
+          // console.log(process.env.NODE_ENV);
         })
         .then(() => {
           this.setState({
@@ -160,7 +160,7 @@ class App extends Component {
           });
         })
         .catch(err => {
-          console.error(err);
+          // console.error(err);
         });
     }
     console.log(this.state.deleted);

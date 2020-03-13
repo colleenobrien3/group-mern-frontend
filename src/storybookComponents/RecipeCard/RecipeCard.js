@@ -22,11 +22,13 @@ const RecipeCard = props => {
   return (
     <div className="recipeCard">
       <div className="change">
-        <div
-          className="delete"
-          onClick={props.delete}
-          id={props.data._id}
-        ></div>
+        {localStorage.token ? (
+          <div
+            className="delete"
+            onClick={props.delete}
+            id={props.data._id}
+          ></div>
+        ) : null}
       </div>
       <h2 className="recipeName">{recipe.name}</h2>
       <div className="card-top">

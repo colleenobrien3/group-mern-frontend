@@ -140,6 +140,7 @@ class Create extends Component {
                     placeholder="create-recipe"
                     id="thisContainer"
                   >
+                    <h5>Info</h5>
                     <input
                       type="text"
                       placeholder="title"
@@ -181,6 +182,7 @@ class Create extends Component {
                     className="create-form form-ingredients"
                     onSubmit={this.setIngredient}
                   >
+                    <h5>Add Ingredient</h5>
                     <input
                       type="text"
                       placeholder="name (e.g. paprika, flour, chicken)"
@@ -207,6 +209,7 @@ class Create extends Component {
                     </div>
                   </form>
                   <form onSubmit={this.setStep} className="create-form">
+                    <h5>Add Step</h5>
                     <input
                       className="currentStep"
                       placeholder="Wash Veggies..."
