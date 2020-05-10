@@ -11,7 +11,7 @@ class Input extends Component {
     return (
       <form
         className={classList}
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
           this.props.onSubmit(this.state.name, this.state.password);
         }}
@@ -29,6 +29,7 @@ class Input extends Component {
         <input
           placeholder={this.props.placeHolderPWord || this.props.label}
           onChange={this.props.setPassword}
+          type= "password"
         ></input>
 
         <br />
